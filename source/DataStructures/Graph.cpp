@@ -7,7 +7,12 @@ Graph::~Graph() {
 }
 
 bool Graph::AddVertex(int v) {
-    vertices.push_back(v);
+    if (ContainsVertex(v))
+        return false;
+    else{
+        vertices.push_back(v);
+        return true;
+    }
 }
 
 bool Graph::RemoveVertex(int v) {
