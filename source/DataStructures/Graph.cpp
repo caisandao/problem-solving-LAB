@@ -21,15 +21,16 @@ bool Graph::RemoveVertex(int v) {
         if (vertices[i] == v) {
             vertices.erase(vertices.begin()+i);
             check = true;
+            break;
         }
     }
     return check;
 }
 
-bool Graph::AddEdge(int v1, int v2) { // 会有添加不成功的例子吗？
+bool Graph::AddEdge(int v1, int v2) {
     if (ContainsVertex(v1) && ContainsVertex(v2)) {
-        Edge new_edge(v1, v2);
-        edges.push_back(new_edge);
+        Edge temp(v1, v2);
+        edges.push_back(temp);
         return true;
     }
     else
@@ -38,7 +39,6 @@ bool Graph::AddEdge(int v1, int v2) { // 会有添加不成功的例子吗？
 
 bool Graph::RemoveEdge(int v1, int v2) {
     bool check = false;
-
     Edge temp(v1, v2);
     for (int i = 0 ; i < edges.size() ; ++i) {
         if (edges[i].SameEdge(temp)) {

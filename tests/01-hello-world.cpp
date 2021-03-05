@@ -20,6 +20,8 @@ int main() {
   assert(g.AddEdge(2, 5) == false);
   assert(g.ContainsEdge(1, 2) == true);
   assert(g.ContainsEdge(2, 5) == false);
+  assert(g.AddEdge(2, 3) == true);
+  assert(g.RemoveEdge(2, 3) == true);
 
   assert(g.GetDegree(1) == 2);
   assert(g.GetIncomingEdges(1).empty());
