@@ -24,6 +24,9 @@ class Graph {
   std::vector<Edge> GetOutgoingEdges(int vertex) const;
   int GetDegree(int vertex) const;
   std::vector<int> GetNeighbors(int vertex) const;
+ private:
+  std::vector<Edge> edges;
+  std::vector<int> vertices;
 };
 
 #endif
