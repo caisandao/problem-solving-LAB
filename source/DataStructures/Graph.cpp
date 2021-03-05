@@ -84,17 +84,22 @@ bool Graph::ContainsEdge(int v1, int v2) const {
 }
 
 std::vector<int> Graph::GetVertices() const {
-    static std::vector<int> temp = vertices;
+    static std::vector<int> temp;
+    temp.clear();
+    temp  = vertices;
     return temp;
 }
 
 std::vector<Edge> Graph::GetEdges() const {
-    static std::vector<Edge> temp = edges;
+    static std::vector<Edge> temp;
+    temp.clear();
+    temp = edges;
     return temp;
 }
 
 std::vector<Edge> Graph::GetIncomingEdges(int v) const {
     static std::vector<Edge> temp;
+    temp.clear();
     for (int i = 0 ; i < edges.size() ; ++i) {
         if (edges[i].GetDestination() == v) {
             temp.push_back(edges[i]);
@@ -105,6 +110,7 @@ std::vector<Edge> Graph::GetIncomingEdges(int v) const {
 
 std::vector<Edge> Graph::GetOutgoingEdges(int v) const {
     static std::vector<Edge> temp;
+    temp.clear();
     for (int i = 0 ; i < edges.size() ; ++i) {
         if (edges[i].GetSource() == v) {
             temp.push_back(edges[i]);
@@ -125,6 +131,7 @@ int Graph::GetDegree(int v) const {
 
 std::vector<int> Graph::GetNeighbors(int v) const {
     static std::vector<int> temp;
+    temp.clear();
     for (int i = 0 ; i < edges.size() ; ++i) {
         if (edges[i].GetSource() == v) {
             temp.push_back(edges[i].GetDestination());
