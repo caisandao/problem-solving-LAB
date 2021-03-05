@@ -127,9 +127,6 @@ std::vector<int> Graph::GetNeighbors(int v) const {
     static std::vector<int> temp;
     for (int i = 0 ; i < edges.size() ; ++i) {
         if (edges[i].GetSource() == v) {
-            temp.push_back(edges[i].GetSource());
-        }
-        if (edges[i].GetDestination() == v) {
             temp.push_back(edges[i].GetDestination());
         }
     }
