@@ -30,15 +30,6 @@ int main() {
   assert(g.GetEdges().size() == 2);
   assert(g.AddVertex(2147483647));
   assert(g.RemoveVertex(2147483647));
-    for (int i = 5 ; i < 1000 ; ++i) {
-        assert(g.AddVertex(i));
-    }
-    for (int i = 5 ; i < 900 ; ++i) {
-        assert(g.AddEdge(i, i+7));
-    }
-    for (int i = 5 ; i < 1000 ; ++i) {
-        assert(g.RemoveVertex(i));
-    }
   //**********
 
   assert(g.GetDegree(1) == 2);
