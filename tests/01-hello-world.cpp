@@ -27,6 +27,8 @@ int main() {
   assert(g.CountEdges() == 2);
   assert(g.GetVertices().size() == 3);
   assert(g.GetEdges().size() == 2);
+  assert(g.AddVertex(2147483647));
+  assert(g.RemoveVertex(2147483647));
   //**********
 
   assert(g.GetDegree(1) == 2);

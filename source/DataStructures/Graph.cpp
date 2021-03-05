@@ -30,7 +30,7 @@ bool Graph::RemoveVertex(int v) {
 }
 
 bool Graph::AddEdge(int v1, int v2) {
-    if (ContainsVertex(v1) && ContainsVertex(v2)) {
+    if (ContainsVertex(v1) && ContainsVertex(v2) && !ContainsEdge(v1, v2)) {
         Edge temp(v1, v2);
         edges.push_back(temp);
         return true;
