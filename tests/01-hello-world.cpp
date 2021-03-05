@@ -1,5 +1,6 @@
 #include <cassert>
 #include <DataStructures/Graph.h>
+#include <iostream>
 using namespace std;
 
 int main() {
@@ -44,5 +45,6 @@ int main() {
   assert(g.GetIncomingEdges(1).empty());
   assert(g.GetOutgoingEdges(1).size() == 2);
   assert(g.GetNeighbors(1).size() == 2);
+  std::cout << g.GetNeighbors(2).size() << std::endl;
   assert(g.GetNeighbors(2).empty());
 }
