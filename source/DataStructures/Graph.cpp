@@ -4,6 +4,8 @@ Graph::Graph() {
 }
 
 Graph::~Graph() {
+    edges.clear();
+    vertices.clear();
 }
 
 bool Graph::AddVertex(int v) {
