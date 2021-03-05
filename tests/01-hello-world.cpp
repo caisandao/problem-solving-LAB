@@ -32,6 +32,9 @@ int main() {
     for (int i = 5 ; i < 1000 ; ++i) {
         assert(g.AddVertex(i));
     }
+    for (int i = 5 ; i < 900 ; ++i) {
+        assert(g.AddEdge(i, i+7));
+    }
     for (int i = 5 ; i < 1000 ; ++i) {
         assert(g.RemoveVertex(i));
     }
