@@ -22,9 +22,13 @@ bool Graph::RemoveVertex(int v) {
 }
 
 bool Graph::AddEdge(int v1, int v2) { // 会有添加不成功的例子吗？
-    Edge new_edge(v1, v2);
-    edges.push_back(new_edge);
-    return true;
+    if (ContainsVertex(v1) && ContainsVertex(v2)) {
+        Edge new_edge(v1, v2);
+        edges.push_back(new_edge);
+        return true;
+    }
+    else
+        return false;
 }
 
 bool Graph::RemoveEdge(int v1, int v2) {
