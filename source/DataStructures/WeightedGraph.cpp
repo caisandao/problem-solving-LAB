@@ -38,13 +38,15 @@ bool WeightedGraph::AddVertex(int vertex) {
 }
 
 bool WeightedGraph::RemoveVertex(int vertex) {
-    std::map<int, std::vector<std::pair<int, int>>>::iterator iter;
-    iter = edges.find(vertex);
-    if (iter != edges.end()) {
-        edges.erase(vertex);
-        return true;
-    } else
-        return false;
+    bool check = false;
+    for (int i = 0 ; i < vertices.size() ; ++i) {
+        if (vertices[i] == vertex) {
+            vertices.erase(vertices.begin()+i);
+            check = true;
+            break;
+        }
+    }
+    return check;
 }
 
 bool WeightedGraph::AddEdge(int vertex1, int vertex2, int weight) {
