@@ -59,6 +59,17 @@ bool WeightedGraph::AddEdge(int vertex1, int vertex2, int weight) {
 }
 
 bool WeightedGraph::RemoveEdge(int vertex1, int vertex2) {
+    if (!ContainsVertex(vertex1) || !ContainsVertex(vertex2) || !ContainsEdge(vertex1, vertex2))
+        return false;
+    else{
+        for (int i = 0 ; i < edges[vertex1].size() ; ++i) {
+            if (edges[vertex1][i].first == vertex2) {
+                edges[vertex1].erase(edges[vertex1].begin()+i);
+                return true;
+            }
+        }
+    }
+    /*
     bool check = false;
     for (int i = 0 ; i < edges[vertex1].size() ; ++i) {
         if (edges[vertex1][i].first == vertex2) {
@@ -68,6 +79,7 @@ bool WeightedGraph::RemoveEdge(int vertex1, int vertex2) {
         }
     }
     return check;
+     */
 }
 
 int WeightedGraph::CountVertices() const {
