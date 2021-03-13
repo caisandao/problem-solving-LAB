@@ -174,11 +174,14 @@ int WeightedGraph::GetDegree(int vertex) const {
 std::vector<int> WeightedGraph::GetNeighbors(int vertex) const {
     static std::vector<int> temp;
     for (const auto& it : edges) {
-        if (it.first == vertex)
-            temp.emplace_back(it.first);
-        for (const auto& i : it.second) {
-            if (i.first == vertex)
+        if (it.first == vertex) {
+            for (const auto& i : it.second)
                 temp.emplace_back(i.first);
+        } else {
+            for (const auto& i : it.second) {
+                if (i.first == vertex)
+                    temp.emplace_back(it.first);
+            }
         }
     }
     return temp;
