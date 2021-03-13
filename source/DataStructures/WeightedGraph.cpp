@@ -127,6 +127,7 @@ std::vector<int> WeightedGraph::GetVertices() const {
 
 std::vector<WeightedEdge> WeightedGraph::GetEdges() const {
     static std::vector<WeightedEdge> temp;
+    temp.clear();
     for (const auto& it : edges) {
         for (const auto& i : it.second) {
             WeightedEdge we(it.first, i.first, i.second);
@@ -138,6 +139,7 @@ std::vector<WeightedEdge> WeightedGraph::GetEdges() const {
 
 std::vector<WeightedEdge> WeightedGraph::GetIncomingEdges(int vertex) const {
     static std::vector<WeightedEdge> temp;
+    temp.clear();
     for (const auto& it : edges) {
         for (const auto i : it.second) {
             if (i.first == vertex) {
@@ -151,6 +153,7 @@ std::vector<WeightedEdge> WeightedGraph::GetIncomingEdges(int vertex) const {
 
 std::vector<WeightedEdge> WeightedGraph::GetOutgoingEdges(int vertex) const {
     static std::vector<WeightedEdge> temp;
+    temp.clear();
     for (const auto& it : edges) {
         if (it.first == vertex) {
             for (const auto& i : it.second) {
@@ -173,6 +176,7 @@ int WeightedGraph::GetDegree(int vertex) const {
 
 std::vector<int> WeightedGraph::GetNeighbors(int vertex) const {
     static std::vector<int> temp;
+    temp.clear();
     for (const auto& it : edges) {
         if (it.first == vertex) {
             for (const auto& i : it.second)

@@ -6,6 +6,7 @@ bool Graph::AddEdge(int vertex1, int vertex2) {
 
 std::vector<Edge> Graph::GetEdges() const {
     static std::vector<Edge> temp;
+    temp.clear();
     for (const auto& it : edges) {
         for (const auto& i : it.second) {
             Edge e(it.first, i.first);
@@ -17,6 +18,7 @@ std::vector<Edge> Graph::GetEdges() const {
 
 std::vector<Edge> Graph::GetIncomingEdges(int vertex) const {
     static std::vector<Edge> temp;
+    temp.clear();
     for (const auto& it : edges) {
         for (const auto i : it.second) {
             if (i.first == vertex) {
@@ -30,6 +32,7 @@ std::vector<Edge> Graph::GetIncomingEdges(int vertex) const {
 
 std::vector<Edge> Graph::GetOutgoingEdges(int vertex) const {
     static std::vector<Edge> temp;
+    temp.clear();
     for (const auto& it : edges) {
         if (it.first == vertex) {
             for (const auto& i : it.second) {
