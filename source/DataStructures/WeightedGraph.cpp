@@ -177,11 +177,6 @@ std::vector<int> WeightedGraph::GetNeighbors(int vertex) const {
         if (it.first == vertex) {
             for (const auto& i : it.second)
                 temp.emplace_back(i.first);
-        } else {
-            for (const auto& i : it.second) {
-                if (i.first == vertex)
-                    temp.emplace_back(it.first);
-            }
         }
     }
     return temp;
