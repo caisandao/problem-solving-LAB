@@ -2,7 +2,7 @@
 #include <DataStructures/Graph.h>
 #include <iostream>
 using namespace std;
-/*
+
 int main() {
   Graph g;
 
@@ -38,4 +38,3 @@ int main() {
   assert(g.GetNeighbors(1).size() == 2);
   assert(g.GetNeighbors(2).empty());
 }
-*/
