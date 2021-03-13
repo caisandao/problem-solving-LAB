@@ -3,7 +3,9 @@
 
 #include <vector>
 #include <DataStructures/Edge.h>
+#include <DataStructures/WeightedGraph.h>
 
+/*
 class Graph {
  public:
   Graph();
@@ -28,5 +30,19 @@ class Graph {
   std::vector<Edge> edges;
   std::vector<int> vertices;
 };
+*/
+
+class Graph : public WeightedGraph {
+public:
+    bool AddEdge(int vertex1, int vertex2);
+    std::vector<Edge> GetEdges() const;
+    std::vector<Edge> GetIncomingEdges(int vertex) const;
+    std::vector<Edge> GetOutgoingEdges(int vertex) const;
+private:
+    std::map<int, std::vector<std::pair<int, int>>> edges;
+    std::vector<int> vertices;
+};
+
+// 函数的值只应该出现在.cpp文件内，不要再在.h文件内再声明
 
 #endif

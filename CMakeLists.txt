@@ -6,7 +6,7 @@ find_package(Git)
 set(CMAKE_CXX_STANDARD 17)
 include_directories("include")
 file(GLOB sources "source/**/*.cpp")
-add_library(GraphLibrary ${sources})
+add_library(GraphLibrary ${sources} include/DataStructures/WeightedEdge.h source/DataStructures/WeightedEdge.cpp include/DataStructures/WeightedGraph.h source/DataStructures/WeightedGraph.cpp)
 
 add_custom_target(GitTraceAdd
         COMMAND "${GIT_EXECUTABLE}" add -A . --ignore-errors
@@ -25,5 +25,5 @@ add_custom_command(TARGET GraphLibrary POST_BUILD
         WORKING_DIRECTORY "${CMAKE_SOURCE_DIR}")
 
 # Your custom tests below
-add_executable(Test01 tests/01-hello-world.cpp)
+add_executable(Test01 tests/01-hello-world.cpp tests/test2.cpp)
 target_link_libraries(Test01 GraphLibrary)

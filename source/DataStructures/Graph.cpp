@@ -1,5 +1,47 @@
 #include <DataStructures/Graph.h>
 
+bool Graph::AddEdge(int vertex1, int vertex2) {
+    return WeightedGraph::AddEdge(vertex1, vertex2, 1);
+}
+
+std::vector<Edge> Graph::GetEdges() const {
+    static std::vector<Edge> temp;
+    for (const auto& it : edges) {
+        for (const auto& i : it.second) {
+            Edge e(it.first, i.first);
+            temp.emplace_back(e);
+        }
+    }
+    return temp;
+}
+
+std::vector<Edge> Graph::GetIncomingEdges(int vertex) const {
+    static std::vector<Edge> temp;
+    for (const auto& it : edges) {
+        for (const auto i : it.second) {
+            if (i.first == vertex) {
+                Edge e(it.first, i.first);
+                temp.emplace_back(e);
+            }
+        }
+    }
+    return temp;
+}
+
+std::vector<Edge> Graph::GetOutgoingEdges(int vertex) const {
+    static std::vector<Edge> temp;
+    for (const auto& it : edges) {
+        if (it.first == vertex) {
+            for (const auto& i : it.second) {
+                Edge e(it.first, i.first);
+                temp.emplace_back(e);
+            }
+        }
+        break;
+    }
+    return temp;
+}
+/*
 Graph::Graph() {
 }
 
@@ -139,3 +181,4 @@ std::vector<int> Graph::GetNeighbors(int v) const {
     }
     return temp;
 }
+*/
