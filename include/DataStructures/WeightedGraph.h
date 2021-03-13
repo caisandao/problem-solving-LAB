@@ -29,7 +29,7 @@ public:
     std::vector<WeightedEdge> GetOutgoingEdges(int vertex) const;
     int GetDegree(int vertex) const;
     std::vector<int> GetNeighbors(int vertex) const;
-private:
+public:
     std::map<int, std::vector<std::pair<int, int>>> edges;
     std::vector<int> vertices;
 };
