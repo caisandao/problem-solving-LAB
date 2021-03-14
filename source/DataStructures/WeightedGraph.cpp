@@ -35,7 +35,6 @@ bool WeightedGraph::RemoveVertex(int vertex) {
 
 bool WeightedGraph::AddEdge(int vertex1, int vertex2, int weight) {
     if (ContainsVertex(vertex1) && ContainsVertex(vertex2) && !ContainsEdge(vertex1, vertex2)) {
-        edges[vertex1] = std::vector<std::pair<int, int>>();
         edges[vertex1].emplace_back(std::make_pair(vertex2, weight));
         return true;
     }
