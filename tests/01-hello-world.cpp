@@ -52,6 +52,15 @@ int main() {
   assert(g.AddEdge(4, 5));
   assert(g.GetNeighbors(4)[0] == 5);
   assert(g.GetNeighbors(6).empty());
+
+  WeightedGraph wg;
+
+  assert(wg.AddVertex(1) == true);
+  assert(wg.AddVertex(2) == true);
+  assert(wg.AddVertex(3) == true);
+  assert(wg.AddEdge(1, 2, 3) == true);
+  assert(wg.AddEdge(1, 3, 3) == true);
+  assert(wg.GetOutgoingEdges(1).size() == 2);
 }
 
 /*
