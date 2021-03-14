@@ -37,6 +37,7 @@ int main() {
     //***********
     assert(wg.AddEdge(2, 3, 6) == true);
     assert(wg.RemoveEdge(2, 3) == true);
+    assert(wg.RemoveEdge(1, 4) == false);
     assert(wg.CountVertices() == 3);
     assert(wg.CountEdges() == 2);
     assert(wg.GetVertices().size() == 3);
