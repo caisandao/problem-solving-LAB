@@ -8,8 +8,6 @@ class Edge {
  public:
   int GetSource() const;
   int GetDestination() const;
- public:
-  bool SameEdge(Edge edge) const;
  private:
   int source;
   int destination;

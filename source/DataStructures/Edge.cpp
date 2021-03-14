@@ -16,6 +16,8 @@ int Edge::GetDestination() const {
     return destination;
 }
 
+/*
 bool Edge::SameEdge(Edge e) const {
     return (e.GetSource() == source && e.GetDestination() == destination);
 }
+ */
