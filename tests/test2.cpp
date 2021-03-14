@@ -22,10 +22,17 @@ int main() {
     assert(wg.RemoveVertex(5) == false);
 
     assert(wg.AddEdge(1, 2, 3) == true);
+    assert(wg.AddEdge(1, 2, 100) == false);
     assert(wg.AddEdge(1, 3, 4) == true);
     assert(wg.AddEdge(2, 5, 5) == false);
+    assert(wg.AddEdge(5, 2, 10) == false);
     assert(wg.ContainsEdge(1, 2) == true);
     assert(wg.ContainsEdge(2, 5) == false);
+
+    assert(wg.GetWeight(1, 2) == 3);
+    assert(wg.GetWeight(1, 3) == 4);
+    assert(wg.GetWeight(2, 3) == 0);
+
     //***********
     assert(wg.AddEdge(2, 3, 6) == true);
     assert(wg.RemoveEdge(2, 3) == true);
