@@ -39,9 +39,8 @@ std::vector<Edge> Graph::GetOutgoingEdges(int vertex) const {
                 Edge e(it.first, i.first);
                 temp.emplace_back(e);
             }
-            //break;
+            break;
         }
-
     }
     return temp;
 }

@@ -24,6 +24,28 @@ int main() {
     int GetDegree(int vertex) const; *
     std::vector<int> GetNeighbors(int vertex) const; *
    */
+  assert(g.AddVertex(1) == true);
+  assert(g.AddVertex(2) == true);
+  assert(g.AddVertex(3) == true);
+  assert(g.AddVertex(4) == true);
+  assert(g.AddVertex(5) == true);
+  assert(g.AddVertex(6) == true);
+  assert(g.AddVertex(7) == true);
+  assert(g.AddEdge(1, 2) == true);
+  assert(g.AddEdge(2, 3) == true);
+  assert(g.AddEdge(3, 4) == true);
+  assert(g.AddEdge(4, 5) == true);
+  assert(g.AddEdge(5, 6) == true);
+  assert(g.AddEdge(6, 7) == true);
+  assert(g.AddEdge(7, 1) == true);
+  assert(g.AddEdge(7, 2) == true);
+  assert(g.AddEdge(7, 3) == true);
+  assert(g.AddEdge(7, 4) == true);
+  assert(g.AddEdge(7, 5) == true);
+  assert(g.AddEdge(7, 6) == true);
+  assert(g.AddEdge(7, 7) == true);
+  assert(g.GetOutgoingEdges(7).size() == 7);
+
 
   assert(g.AddVertex(1) == true);
   assert(g.AddVertex(2) == true);
