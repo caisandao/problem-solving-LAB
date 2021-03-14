@@ -46,6 +46,7 @@ int main() {
 
 */
 int main() {
+    /*
     Graph g;
     WeightedGraph wg;
 
@@ -55,7 +56,6 @@ int main() {
     assert(wg.AddVertex(3) == false);
     assert(wg.AddVertex(4) == true);
 
-//  assert(wg.AddEdge(1, 2, 3) == true);
 
     assert(wg.ContainsVertex(4) == true);
     assert(wg.RemoveVertex(4) == true);
@@ -76,18 +76,18 @@ int main() {
 
     assert(wg.RemoveEdge(1,2) == true);
     assert(wg.RemoveEdge(2,3) == false);
+*/
+    WeightedGraph q;
+    for(int i = 0; i < 1000; i++){
+      q.AddVertex(i*3);
+    }
+    assert(q.CountVertices() == 1000);
 
-//  WeightedGraph q;
-//  for(int i = 0; i < 1000; i++){
-//      q.AddVertex(i*3);
-//  }
-//  assert(q.CountVertices() == 1000);
-//
-//  for(int i = 0; i < 999; i++){
-//      assert( q.AddEdge(i*3, (i+1)*3, 112) == true);
-//  }
-//  for(int i = 0; i < 999; i++)
-//    assert(q.ContainsEdge(i * 3, (i + 1) * 3));
-//
-//  assert(q.CountEdges() == 999);
+    for(int i = 0; i < 999; i++){
+         assert( q.AddEdge(i*3, (i+1)*3, 112) == true);
+    }
+     for(int i = 0; i < 999; i++)
+        assert(q.ContainsEdge(i * 3, (i + 1) * 3));
+
+      assert(q.CountEdges() == 999);
 }
