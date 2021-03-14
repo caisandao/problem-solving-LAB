@@ -24,6 +24,7 @@ int main() {
     int GetDegree(int vertex) const; *
     std::vector<int> GetNeighbors(int vertex) const; *
    */
+  /*
   assert(g.AddVertex(1) == true);
   assert(g.AddVertex(2) == true);
   assert(g.AddVertex(3) == true);
@@ -45,6 +46,7 @@ int main() {
   assert(g.AddEdge(7, 6) == true);
   assert(g.AddEdge(7, 7) == true);
   assert(g.GetOutgoingEdges(7).size() == 7);
+  */
 
 
   assert(g.AddVertex(1) == true);
