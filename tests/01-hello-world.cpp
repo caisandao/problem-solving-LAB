@@ -17,12 +17,12 @@ int main() {
     bool ContainsVertex(int vertex) const; *
     bool ContainsEdge(int vertex1, int vertex2) const; *
     int GetWeight(int vertex1, int vertex2) const; *
-    std::vector<int> GetVertices() const;
-    std::vector<WeightedEdge> GetEdges() const;
-    std::vector<WeightedEdge> GetIncomingEdges(int vertex) const;
-    std::vector<WeightedEdge> GetOutgoingEdges(int vertex) const;
-    int GetDegree(int vertex) const;
-    std::vector<int> GetNeighbors(int vertex) const;
+    std::vector<int> GetVertices() const; *
+    std::vector<WeightedEdge> GetEdges() const; *
+    std::vector<WeightedEdge> GetIncomingEdges(int vertex) const; *
+    std::vector<WeightedEdge> GetOutgoingEdges(int vertex) const; *
+    int GetDegree(int vertex) const; *
+    std::vector<int> GetNeighbors(int vertex) const; *
    */
 
   assert(g.AddVertex(1) == true);
@@ -50,9 +50,11 @@ int main() {
 
 
   assert(g.AddEdge(2, 3) == true);
+  assert(g.GetEdges().size() == 3);
   assert(g.ContainsEdge(2, 3) == true);
   assert(g.CountEdges() == 3);
   assert(g.RemoveEdge(2, 3) == true);
+  assert(g.GetEdges().size() == 2);
   assert(g.CountEdges() == 2);
   assert(g.RemoveEdge(2, 5) == false);
   assert(g.ContainsEdge(2, 3) == false);
