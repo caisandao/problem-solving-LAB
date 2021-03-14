@@ -2,31 +2,12 @@
 // Created by ASUS on 2021/3/13.
 //
 
-
-/*
-bool AddVertex(int vertex);
-bool RemoveVertex(int vertex);
-bool AddEdge(int vertex1, int vertex2, int weight);
-bool RemoveEdge(int vertex1, int vertex2);
-int CountVertices() const;
-int CountEdges() const;
-bool ContainsVertex(int vertex) const;
-bool ContainsEdge(int vertex1, int vertex2) const;
-int GetWeight(int vertex1, int vertex2) const;
-std::vector<int> GetVertices() const;
-std::vector<WeightedEdge> GetEdges() const;
-std::vector<WeightedEdge> GetIncomingEdges(int vertex) const;
-std::vector<WeightedEdge> GetOutgoingEdges(int vertex) const;
-int GetDegree(int vertex) const;
-std::vector<int> GetNeighbors(int vertex) const;
- */
-
 #include <DataStructures/WeightedGraph.h>
 #include <algorithm>
 
-WeightedGraph::WeightedGraph() {}
+WeightedGraph::WeightedGraph() = default;
 
-WeightedGraph::~WeightedGraph() {}
+WeightedGraph::~WeightedGraph() = default;
 
 bool WeightedGraph::AddVertex(int vertex) {
     if (ContainsVertex(vertex))
@@ -144,8 +125,10 @@ int WeightedGraph::GetWeight(int vertex1, int vertex2) const {
                 return i.second;
             }
         }
+    } else {
+        return 0;
     }
-    return 0;
+
     /*
     int res = 0; // 若没有这条边则为未定义行为，此处返回0
     for (const auto& it : edges) {

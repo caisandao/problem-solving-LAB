@@ -2,7 +2,7 @@
 // Created by ASUS on 2021/3/13.
 //
 
-/*
+
 #include <cassert>
 #include <DataStructures/WeightedGraph.h>
 #include <iostream>
@@ -43,4 +43,3 @@ int main() {
     assert(wg.GetNeighbors(1).size() == 2);
     assert(wg.GetNeighbors(2).empty());
 }
-*/
