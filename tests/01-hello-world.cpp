@@ -71,8 +71,8 @@ int main() {
   assert(g.GetOutgoingEdges(1).size() == 2);
     assert(g.GetOutgoingEdges(1)[0].GetSource() == 1);
     assert(g.GetOutgoingEdges(1)[0].GetDestination() == 2);
-    assert(g.GetOutgoingEdges(1)[0].GetSource() == 1);
-    assert(g.GetOutgoingEdges(1)[0].GetDestination() == 3);
+    assert(g.GetOutgoingEdges(1)[1].GetSource() == 1);
+    assert(g.GetOutgoingEdges(1)[1].GetDestination() == 3);
   assert(g.GetNeighbors(1).size() == 2);
   assert(g.GetNeighbors(2).empty());
   assert(g.GetOutgoingEdges(1).size() == 2);
