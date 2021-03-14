@@ -67,6 +67,8 @@ int main() {
 
 
   assert(g.GetDegree(1) == 2);
+  assert(g.GetDegree(2) == 0);
+  assert(g.GetDegree(3) == 0);
   assert(g.GetIncomingEdges(1).empty());
   assert(g.GetOutgoingEdges(1).size() == 2);
     assert(g.GetOutgoingEdges(1)[0].GetSource() == 1);
