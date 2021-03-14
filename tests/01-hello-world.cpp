@@ -7,14 +7,34 @@ using namespace std;
 int main() {
   Graph g;
 
+  /*
+   * bool AddVertex(int vertex); *
+    bool RemoveVertex(int vertex); *
+    bool AddEdge(int vertex1, int vertex2, int weight);
+    bool RemoveEdge(int vertex1, int vertex2);
+    int CountVertices() const;
+    int CountEdges() const;
+    bool ContainsVertex(int vertex) const;
+    bool ContainsEdge(int vertex1, int vertex2) const;
+    int GetWeight(int vertex1, int vertex2) const;
+    std::vector<int> GetVertices() const;
+    std::vector<WeightedEdge> GetEdges() const;
+    std::vector<WeightedEdge> GetIncomingEdges(int vertex) const;
+    std::vector<WeightedEdge> GetOutgoingEdges(int vertex) const;
+    int GetDegree(int vertex) const;
+    std::vector<int> GetNeighbors(int vertex) const;
+   */
+
   assert(g.AddVertex(1) == true);
   assert(g.AddVertex(2) == true);
   assert(g.AddVertex(3) == true);
   assert(g.AddVertex(3) == false);
   assert(g.AddVertex(4) == true);
+  assert(g.CountVertices() == 4);
   assert(g.ContainsVertex(4) == true);
   assert(g.ContainsVertex(2) == true);
   assert(g.RemoveVertex(4) == true);
+  assert(g.CountVertices() == 3);
   assert(g.ContainsVertex(4) == false);
   assert(g.RemoveVertex(5) == false);
 

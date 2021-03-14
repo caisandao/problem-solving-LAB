@@ -7,7 +7,10 @@
 
 WeightedGraph::WeightedGraph() = default;
 
-WeightedGraph::~WeightedGraph() = default;
+WeightedGraph::~WeightedGraph() {
+    edges.clear();
+    vertices.clear();
+};
 
 bool WeightedGraph::AddVertex(int vertex) {
     if (ContainsVertex(vertex))
@@ -32,6 +35,7 @@ bool WeightedGraph::RemoveVertex(int vertex) {
 
 bool WeightedGraph::AddEdge(int vertex1, int vertex2, int weight) {
     if (ContainsVertex(vertex1) && ContainsVertex(vertex2) && !ContainsEdge(vertex1, vertex2)) {
+        edges[vertex1] = std::vector<std::pair<int, int>>();
         edges[vertex1].emplace_back(std::make_pair(vertex2, weight));
         return true;
     }
@@ -40,6 +44,7 @@ bool WeightedGraph::AddEdge(int vertex1, int vertex2, int weight) {
 }
 
 bool WeightedGraph::RemoveEdge(int vertex1, int vertex2) {
+    /*
     if (!ContainsVertex(vertex1) || !ContainsVertex(vertex2) || !ContainsEdge(vertex1, vertex2))
         return false;
     else{
@@ -50,6 +55,20 @@ bool WeightedGraph::RemoveEdge(int vertex1, int vertex2) {
             }
         }
     }
+     */
+
+    const auto& it = edges.find(vertex1);
+    bool check = false;
+    if (it != edges.end()) {
+        for (int i = 0 ; i < edges[vertex1].size() ; ++i) {
+            if (edges[vertex1][i].first == vertex2) {
+                edges[vertex1].erase(edges[vertex1].begin()+i);
+                check = true;
+                break;
+            }
+        }
+    }
+    return check;
     /*
     bool check = false;
     for (int i = 0 ; i < edges[vertex1].size() ; ++i) {
@@ -60,7 +79,7 @@ bool WeightedGraph::RemoveEdge(int vertex1, int vertex2) {
         }
     }
     return check;
-     */
+    */
 }
 
 int WeightedGraph::CountVertices() const {
@@ -76,7 +95,7 @@ int WeightedGraph::CountEdges() const {
 }
 
 bool WeightedGraph::ContainsVertex(int vertex) const {
-    std::vector<int>::iterator iter;
+    //std::vector<int>::iterator iter;
     if (find(vertices.begin(), vertices.end(), vertex) != vertices.end())
         return true;
     else
