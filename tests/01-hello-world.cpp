@@ -3,7 +3,7 @@
 #include <DataStructures/Graph.h>
 #include <iostream>
 using namespace std;
-
+/*
 int main() {
   Graph g;
 
@@ -44,3 +44,50 @@ int main() {
   assert(g.GetWeight(1, 2) == 1);
 }
 
+*/
+int main() {
+    Graph g;
+    WeightedGraph wg;
+
+    assert(wg.AddVertex(1) == true);
+    assert(wg.AddVertex(2) == true);
+    assert(wg.AddVertex(3) == true);
+    assert(wg.AddVertex(3) == false);
+    assert(wg.AddVertex(4) == true);
+
+//  assert(wg.AddEdge(1, 2, 3) == true);
+
+    assert(wg.ContainsVertex(4) == true);
+    assert(wg.RemoveVertex(4) == true);
+    assert(wg.ContainsVertex(4) == false);
+    assert(wg.RemoveVertex(5) == false);
+
+    assert(wg.AddEdge(1, 2, 3) == true);
+    assert(wg.AddEdge(1, 3, 3) == true);
+    assert(wg.AddEdge(2, 5, 3) == false);
+    assert(wg.ContainsEdge(1, 2) == true);
+    assert(wg.ContainsEdge(2, 5) == false);
+
+    assert(wg.GetDegree(1) == 2);
+    assert(wg.GetIncomingEdges(1).empty());
+    assert(wg.GetOutgoingEdges(1).size() == 2);
+    assert(wg.GetNeighbors(1).size() == 2);
+    assert(wg.GetNeighbors(2).empty());
+
+    assert(wg.RemoveEdge(1,2) == true);
+    assert(wg.RemoveEdge(2,3) == false);
+
+//  WeightedGraph q;
+//  for(int i = 0; i < 1000; i++){
+//      q.AddVertex(i*3);
+//  }
+//  assert(q.CountVertices() == 1000);
+//
+//  for(int i = 0; i < 999; i++){
+//      assert( q.AddEdge(i*3, (i+1)*3, 112) == true);
+//  }
+//  for(int i = 0; i < 999; i++)
+//    assert(q.ContainsEdge(i * 3, (i + 1) * 3));
+//
+//  assert(q.CountEdges() == 999);
+}
