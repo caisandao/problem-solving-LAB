@@ -10,7 +10,7 @@ int main() {
   /*
    * bool AddVertex(int vertex); *
     bool RemoveVertex(int vertex); *
-    bool AddEdge(int vertex1, int vertex2, int weight);
+    bool AddEdge(int vertex1, int vertex2, int weight); *
     bool RemoveEdge(int vertex1, int vertex2);
     int CountVertices() const;
     int CountEdges() const;
@@ -49,6 +49,7 @@ int main() {
 
   assert(g.AddEdge(2, 3) == true);
   assert(g.RemoveEdge(2, 3) == true);
+  assert(g.RemoveEdge(2, 5) == false);
   assert(g.ContainsEdge(2, 3) == false);
   assert(g.CountVertices() == 3);
   assert(g.CountEdges() == 2);
