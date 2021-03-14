@@ -3,7 +3,7 @@
 #include <DataStructures/Graph.h>
 #include <iostream>
 using namespace std;
-/*
+
 int main() {
   Graph g;
 
@@ -13,6 +13,7 @@ int main() {
   assert(g.AddVertex(3) == false);
   assert(g.AddVertex(4) == true);
   assert(g.ContainsVertex(4) == true);
+  assert(g.ContainsVertex(2) == true);
   assert(g.RemoveVertex(4) == true);
   assert(g.ContainsVertex(4) == false);
   assert(g.RemoveVertex(5) == false);
@@ -27,6 +28,7 @@ int main() {
 
   assert(g.AddEdge(2, 3) == true);
   assert(g.RemoveEdge(2, 3) == true);
+  assert(g.ContainsEdge(2, 3) == false);
   assert(g.CountVertices() == 3);
   assert(g.CountEdges() == 2);
   assert(g.GetVertices().size() == 3);
@@ -44,9 +46,9 @@ int main() {
   assert(g.GetWeight(1, 2) == 1);
 }
 
-*/
+/*
 int main() {
-    /*
+
     Graph g;
     WeightedGraph wg;
 
@@ -76,7 +78,7 @@ int main() {
 
     assert(wg.RemoveEdge(1,2) == true);
     assert(wg.RemoveEdge(2,3) == false);
-*/
+
     WeightedGraph q;
     for(int i = 0; i < 1000; i++){
       q.AddVertex(i*3);
@@ -91,3 +93,4 @@ int main() {
 
       assert(q.CountEdges() == 999);
 }
+ */
