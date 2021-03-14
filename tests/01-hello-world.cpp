@@ -61,7 +61,7 @@ int main() {
   assert(wg.AddEdge(1, 2, 3) == true);
   assert(wg.AddEdge(1, 3, 3) == true);
   assert(wg.GetOutgoingEdges(1).size() == 2);
-  assert(wg.GetOutgoingEdges(2).empty);
+  assert(wg.GetOutgoingEdges(2).empty());
 }
 
 /*
