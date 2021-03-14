@@ -32,6 +32,7 @@ int main() {
     assert(wg.GetWeight(1, 2) == 3);
     assert(wg.GetWeight(1, 3) == 4);
     assert(wg.GetWeight(2, 3) == 0);
+    assert(wg.GetWeight(4, 1) == 0);
 
     //***********
     assert(wg.AddEdge(2, 3, 6) == true);
