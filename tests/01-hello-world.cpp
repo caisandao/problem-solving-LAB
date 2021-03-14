@@ -69,6 +69,7 @@ int main() {
   assert(wg.GetOutgoingEdges(4)[0].GetSource() == 4);
   assert(wg.GetOutgoingEdges(4)[0].GetDestination() == 5);
   assert(wg.GetOutgoingEdges(1).size() == 2);
+  assert(wg.GetIncomingEdges(2).size() == 1);
 }
 
 /*
