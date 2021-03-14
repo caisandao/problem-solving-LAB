@@ -1,4 +1,4 @@
-/*
+
 #include <cassert>
 #include <DataStructures/Graph.h>
 #include <iostream>
@@ -18,11 +18,13 @@ int main() {
   assert(g.RemoveVertex(5) == false);
 
   assert(g.AddEdge(1, 2) == true);
+  assert(g.GetWeight(1, 2) == 1);
   assert(g.AddEdge(1, 3) == true);
   assert(g.AddEdge(2, 5) == false);
   assert(g.ContainsEdge(1, 2) == true);
   assert(g.ContainsEdge(2, 5) == false);
-  //***********
+
+
   assert(g.AddEdge(2, 3) == true);
   assert(g.RemoveEdge(2, 3) == true);
   assert(g.CountVertices() == 3);
@@ -31,7 +33,7 @@ int main() {
   assert(g.GetEdges().size() == 2);
   assert(g.AddVertex(2147483647));
   assert(g.RemoveVertex(2147483647));
-  //**********
+
 
   assert(g.GetDegree(1) == 2);
   assert(g.GetIncomingEdges(1).empty());
@@ -42,4 +44,3 @@ int main() {
   assert(g.GetWeight(1, 2) == 1);
 }
 
- */

@@ -2,7 +2,7 @@
 // Created by ASUS on 2021/3/13.
 //
 
-
+/*
 #include <cassert>
 #include <DataStructures/WeightedGraph.h>
 #include <iostream>
@@ -34,7 +34,7 @@ int main() {
     assert(wg.GetWeight(2, 3) == 0);
     assert(wg.GetWeight(4, 1) == 0);
 
-    //***********
+
     assert(wg.AddEdge(2, 3, 6) == true);
     assert(wg.RemoveEdge(2, 3) == true);
     assert(wg.RemoveEdge(1, 4) == false);
@@ -44,7 +44,7 @@ int main() {
     assert(wg.GetEdges().size() == 2);
     assert(wg.AddVertex(2147483647));
     assert(wg.RemoveVertex(2147483647));
-    //**********
+
 
     assert(wg.GetDegree(1) == 2);
     assert(wg.GetIncomingEdges(1).empty());
@@ -52,3 +52,4 @@ int main() {
     assert(wg.GetNeighbors(1).size() == 2);
     assert(wg.GetNeighbors(2).empty());
 }
+*/
