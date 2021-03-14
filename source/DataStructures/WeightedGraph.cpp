@@ -203,8 +203,9 @@ std::vector<WeightedEdge> WeightedGraph::GetOutgoingEdges(int vertex) const {
                 WeightedEdge we(it.first, i.first, i.second);
                 temp.emplace_back(we);
             }
+            //break;
         }
-        break;
+
     }
     return temp;
 }
