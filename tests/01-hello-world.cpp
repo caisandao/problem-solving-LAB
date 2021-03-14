@@ -66,6 +66,8 @@ int main() {
   assert(wg.AddVertex(5) == true);
   assert(wg.AddEdge(4, 5, 3) == true);
   assert(wg.GetOutgoingEdges(4)[0].GetWeight() == 3);
+  assert(wg.GetOutgoingEdges(4)[0].GetSource() == 4);
+  assert(wg.GetOutgoingEdges(4)[0].GetDestination() == 5);
   assert(wg.GetOutgoingEdges(1).size() == 2);
 }
 
