@@ -9,7 +9,7 @@
 
 class UndirectedGraph : public Graph {
 public:
-    bool AddEdge(int vertex1, int vertex2, int weight);
+    bool AddEdge(int vertex1, int vertex2);
     bool RemoveEdge(int vertex1, int vertex2);
     int CountEdges() const;
     std::vector<Edge> GetEdges() const;

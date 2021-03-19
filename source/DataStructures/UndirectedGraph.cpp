@@ -5,7 +5,7 @@
 #include <DataStructures/UndirectedGraph.h>
 #include <algorithm>
 
-bool UndirectedGraph::AddEdge(int vertex1, int vertex2, int weight) {
+bool UndirectedGraph::AddEdge(int vertex1, int vertex2) {
     if (vertex1 == vertex2)
         Graph::AddEdge(vertex1, vertex2);
     else {

@@ -34,7 +34,7 @@ class Graph {
 
 class Graph : public WeightedGraph {
 public:
-    bool AddEdge(int vertex1, int vertex2);
+    virtual bool AddEdge(int vertex1, int vertex2);
     std::vector<Edge> GetEdges() const;
     std::vector<Edge> GetIncomingEdges(int vertex) const;
     std::vector<Edge> GetOutgoingEdges(int vertex) const;
