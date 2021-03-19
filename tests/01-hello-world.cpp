@@ -166,6 +166,27 @@ int main() {
   assert(ug.RemoveEdge(1, 1) == true);
   assert(ug.CountEdges() == 2);
   assert(ug.ContainsEdge(1, 1) ==false);
+
+  UndirectedWeightedGraph uwg;
+  assert(uwg.AddVertex(1) == true);
+  assert(uwg.AddVertex(2) == true);
+  assert(uwg.AddEdge(1, 2, 3) == true);
+  assert(uwg.RemoveEdge(1, 2) == true);
+  assert(uwg.RemoveEdge(1, 2) == false);
+  assert(uwg.AddVertex(3) == true);
+  assert(uwg.AddEdge(1, 2, 3) == true);
+  assert(uwg.AddEdge(1, 3, 3) == true);
+  assert(uwg.CountEdges() == 2);
+  assert(uwg.ContainsEdge(1, 2) == true);
+  assert(uwg.ContainsEdge(2, 3) == false);
+  assert(uwg.AddEdge(1, 1, 3) == true);
+  assert(uwg.CountEdges() == 3);
+  assert(uwg.AddEdge(1, 2, 3) == false);
+  assert(uwg.CountEdges() == 3);
+  assert(uwg.ContainsEdge(1, 1) == true);
+  assert(uwg.RemoveEdge(1, 1) == true);
+  assert(uwg.CountEdges() == 2);
+  assert(uwg.ContainsEdge(1, 1) ==false);
 }
 
 /*
