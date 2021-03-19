@@ -167,6 +167,7 @@ int main() {
   assert(ug.CountEdges() == 2);
   assert(ug.ContainsEdge(1, 1) ==false);
   assert(ug.AddEdge(4, 5) == false);
+  assert(ug.RemoveEdge(4, 5) == false);
 
   UndirectedWeightedGraph uwg;
   assert(uwg.AddVertex(1) == true);
