@@ -13,19 +13,23 @@ virtual std::vector<WeightedEdge> GetEdges() const;
 
 bool UndirectedWeightedGraph::AddEdge(int vertex1, int vertex2, int weight) {
     if (vertex1 == vertex2)
-        WeightedGraph::AddEdge(vertex1, vertex2, weight);
+        return WeightedGraph::AddEdge(vertex1, vertex2, weight);
     else {
-        WeightedGraph::AddEdge(vertex1, vertex2, weight);
-        WeightedGraph::AddEdge(vertex2, vertex1, weight);
+        bool check1 = false, check2 = false;
+        check1 = WeightedGraph::AddEdge(vertex1, vertex2, weight);
+        check2 = WeightedGraph::AddEdge(vertex2, vertex1, weight);
+        return check1 && check2;
     }
 }
 
 bool UndirectedWeightedGraph::RemoveEdge(int vertex1, int vertex2) {
     if (vertex1 == vertex2)
-        WeightedGraph::RemoveEdge(vertex1, vertex2);
+        return WeightedGraph::RemoveEdge(vertex1, vertex2);
     else {
-        WeightedGraph::RemoveEdge(vertex1, vertex2);
-        WeightedGraph::RemoveEdge(vertex2, vertex1);
+        bool check1 = false, check2 = false;
+        check1 = WeightedGraph::RemoveEdge(vertex1, vertex2);
+        check2 = WeightedGraph::RemoveEdge(vertex2, vertex1);
+        return check1 && check2;
     }
 }
 
