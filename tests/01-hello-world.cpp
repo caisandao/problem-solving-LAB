@@ -163,6 +163,9 @@ int main() {
   assert(ug.AddEdge(1, 2) == false);
   assert(ug.CountEdges() == 3);
   assert(ug.ContainsEdge(1, 1) == true);
+  assert(ug.RemoveEdge(1, 1) == true);
+  assert(ug.CountEdges() == 2);
+  assert(ug.ContainsEdge(1, 1) ==false);
 }
 
 /*
