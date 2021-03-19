@@ -26,7 +26,7 @@ public:
     std::vector<int> GetVertices() const;
     std::vector<WeightedEdge> GetEdges() const;std::vector<WeightedEdge> GetIncomingEdges(int vertex) const;
     std::vector<WeightedEdge> GetOutgoingEdges(int vertex) const;
-    int GetDegree(int vertex) const;
+    virtual int GetDegree(int vertex) const;
     std::vector<int> GetNeighbors(int vertex) const;
 public:
     std::map<int, std::vector<std::pair<int, int>>> edges;

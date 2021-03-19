@@ -13,6 +13,7 @@ public:
     bool RemoveEdge(int vertex1, int vertex2);
     int CountEdges() const;
     std::vector<Edge> GetEdges() const;
+    int GetDegree(int vertex) const;
 };
 
 #endif //GRAPHLIBRARY_UNDIRECTEDGRAPH_H

@@ -68,3 +68,19 @@ std::vector<WeightedEdge> UndirectedWeightedGraph::GetEdges() const {
     return temp;
 
 }
+
+int UndirectedWeightedGraph::GetDegree(int vertex) const {
+    const auto& iter = edges.find(vertex);
+    int res = 0;
+    if (iter != edges.end()) {
+        for (const auto& i : iter->second) {
+            if (i.first == iter->first)
+                res += 2;
+            else
+                res++;
+        }
+        return res;
+    }
+    else
+        return 0;
+}
