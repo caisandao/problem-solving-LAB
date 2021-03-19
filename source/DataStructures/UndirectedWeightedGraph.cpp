@@ -29,12 +29,20 @@ std::vector<WeightedEdge> UndirectedWeightedGraph::GetEdges() const {
 
     static std::vector<WeightedEdge> temp;
     temp.clear();
+    int check = 0;
     for (const auto& it : edges) {
         for (const auto& i : it.second) {
             const WeightedEdge we(it.first, i.first, i.second);
             const WeightedEdge inverse_we(i.first, it.first, i.second);
-            if (find(temp.begin(), temp.end(), inverse_we) == temp.end())
+            for (auto & j : temp) {
+                if (j.GetSource() == inverse_we.GetSource() && j.GetDestination() == inverse_we.GetDestination()) {
+                    check = 1;
+                    break;
+                }
+            }
+            if (!check)
                 temp.emplace_back(we);
+            check = 0;
         }
     }
     return temp;
