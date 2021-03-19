@@ -12,17 +12,34 @@ virtual std::vector<WeightedEdge> GetEdges() const;
  */
 
 bool UndirectedWeightedGraph::AddEdge(int vertex1, int vertex2, int weight) {
-    WeightedGraph::AddEdge(vertex1, vertex2, weight);
-    WeightedGraph::AddEdge(vertex2, vertex1, weight);
+    if (vertex1 == vertex2)
+        WeightedGraph::AddEdge(vertex1, vertex2, weight);
+    else {
+        WeightedGraph::AddEdge(vertex1, vertex2, weight);
+        WeightedGraph::AddEdge(vertex2, vertex1, weight);
+    }
 }
 
 bool UndirectedWeightedGraph::RemoveEdge(int vertex1, int vertex2) {
-    WeightedGraph::RemoveEdge(vertex1, vertex2);
-    WeightedGraph::RemoveEdge(vertex2, vertex1);
+    if (vertex1 == vertex2)
+        WeightedGraph::RemoveEdge(vertex1, vertex2);
+    else {
+        WeightedGraph::RemoveEdge(vertex1, vertex2);
+        WeightedGraph::RemoveEdge(vertex2, vertex1);
+    }
 }
 
 int UndirectedWeightedGraph::CountEdges() const {
-    return WeightedGraph::CountEdges() / 2;
+    int res = 0;
+    for (const auto& it : edges) {
+        for (const auto& i: it.second) {
+            if (i.first == it.first)
+                res += 2;
+            else
+                res++;
+        }
+    }
+    return res / 2;
 }
 
 std::vector<WeightedEdge> UndirectedWeightedGraph::GetEdges() const {
@@ -32,10 +49,9 @@ std::vector<WeightedEdge> UndirectedWeightedGraph::GetEdges() const {
     int check = 0;
     for (const auto& it : edges) {
         for (const auto& i : it.second) {
-            const WeightedEdge we(it.first, i.first, i.second);
-            const WeightedEdge inverse_we(i.first, it.first, i.second);
+            WeightedEdge we(it.first, i.first, i.second);
             for (auto & j : temp) {
-                if (j.GetSource() == inverse_we.GetSource() && j.GetDestination() == inverse_we.GetDestination()) {
+                if (j.GetSource() == we.GetDestination() && j.GetDestination() == we.GetSource()) {
                     check = 1;
                     break;
                 }
