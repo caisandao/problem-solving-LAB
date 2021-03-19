@@ -2,6 +2,8 @@
 #include <cassert>
 #include <DataStructures/Graph.h>
 #include <iostream>
+#include <DataStructures/UndirectedGraph.h>
+#include <DataStructures/UndirectedWeightedGraph.h>
 using namespace std;
 
 int main() {
@@ -141,6 +143,21 @@ int main() {
   assert(wg.GetEdges().size() == 4);
   assert(wg.RemoveEdge(6, 7) == true);
   assert(wg.GetEdges().size() == 3);
+
+
+  // 测试无向图
+  UndirectedGraph ug;
+  assert(ug.AddVertex(1) == true);
+  assert(ug.AddVertex(2) == true);
+  assert(ug.AddEdge(1, 2) == true);
+  assert(ug.RemoveEdge(1, 2) == true);
+  assert(ug.RemoveEdge(1, 2) == false);
+  assert(ug.AddVertex(3) == true);
+  assert(ug.AddEdge(1, 2) == true);
+  assert(ug.AddEdge(1, 3) == true);
+  assert(ug.CountEdges() == 2);
+  assert(ug.ContainsEdge(1, 2) == true);
+  assert(ug.ContainsEdge(2, 3) == false);
 }
 
 /*
