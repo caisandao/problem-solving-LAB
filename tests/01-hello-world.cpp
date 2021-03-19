@@ -160,6 +160,8 @@ int main() {
   assert(ug.ContainsEdge(2, 3) == false);
   assert(ug.AddEdge(1, 1) == true);
   assert(ug.CountEdges() == 3);
+  assert(ug.AddEdge(1, 2) == false);
+  assert(ug.CountEdges() == 3);
 }
 
 /*
