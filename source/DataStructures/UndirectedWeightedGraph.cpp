@@ -26,17 +26,17 @@ int UndirectedWeightedGraph::CountEdges() const {
 }
 
 std::vector<WeightedEdge> UndirectedWeightedGraph::GetEdges() const {
-    /*
+
     static std::vector<WeightedEdge> temp;
     temp.clear();
     for (const auto& it : edges) {
         for (const auto& i : it.second) {
-            WeightedEdge we(it.first, i.first, i.second);
-            WeightedEdge inverse_we(i.first, it.first, i.second);
+            const WeightedEdge we(it.first, i.first, i.second);
+            const WeightedEdge inverse_we(i.first, it.first, i.second);
             if (find(temp.begin(), temp.end(), inverse_we) == temp.end())
                 temp.emplace_back(we);
         }
     }
     return temp;
-     */
+
 }
