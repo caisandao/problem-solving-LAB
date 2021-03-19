@@ -20,17 +20,23 @@ int UndirectedGraph::CountEdges() const {
 }
 
 std::vector<Edge> UndirectedGraph::GetEdges() const {
-    /*
     static std::vector<Edge> temp;
     temp.clear();
+    int check = 0;
     for (const auto& it : edges) {
         for (const auto& i : it.second) {
             Edge e(it.first, i.first);
             Edge inverse_e(i.first, it.first);
-            if (find(temp.begin(), temp.end(), inverse_e) == temp.end())
+            for (auto & j : temp) {
+                if (j.GetSource() == inverse_e.GetSource() && j.GetDestination() == inverse_e.GetDestination()) {
+                    check = 1;
+                    break;
+                }
+            }
+            if (!check)
                 temp.emplace_back(e);
+            check = 0;
         }
     }
     return temp;
-     */
 }
