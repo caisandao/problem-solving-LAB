@@ -4,7 +4,7 @@
 class Edge {
  public:
   Edge(int source, int destination);
-  ~Edge();
+  virtual ~Edge();
  public:
   int GetSource() const;
   int GetDestination() const;
