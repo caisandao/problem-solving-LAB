@@ -26,6 +26,7 @@ int UndirectedWeightedGraph::CountEdges() const {
 }
 
 std::vector<WeightedEdge> UndirectedWeightedGraph::GetEdges() const {
+    /*
     static std::vector<WeightedEdge> temp;
     temp.clear();
     for (const auto& it : edges) {
@@ -37,4 +38,5 @@ std::vector<WeightedEdge> UndirectedWeightedGraph::GetEdges() const {
         }
     }
     return temp;
+     */
 }

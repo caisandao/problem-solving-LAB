@@ -20,6 +20,7 @@ int UndirectedGraph::CountEdges() const {
 }
 
 std::vector<Edge> UndirectedGraph::GetEdges() const {
+    /*
     static std::vector<Edge> temp;
     temp.clear();
     for (const auto& it : edges) {
@@ -31,4 +32,5 @@ std::vector<Edge> UndirectedGraph::GetEdges() const {
         }
     }
     return temp;
+     */
 }
