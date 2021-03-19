@@ -188,6 +188,7 @@ int main() {
   assert(uwg.RemoveEdge(1, 1) == true);
   assert(uwg.CountEdges() == 2);
   assert(uwg.ContainsEdge(1, 1) ==false);
+  assert(uwg.AddEdge(4, 5, 3) == false);
 }
 
 /*
