@@ -92,9 +92,8 @@ public:
                     return i.second;
                 }
             }
-        } else {
-            return (T)0;
         }
+        return (T)0;
     };
     std::vector<int> GetVertices() const {
         static std::vector<int> temp;
