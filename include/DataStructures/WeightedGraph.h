@@ -35,7 +35,7 @@ public:
         }
         return check;
     };
-    virtual bool AddEdge(int vertex1, int vertex2, int weight) {
+    virtual bool AddEdge(int vertex1, int vertex2, T weight) {
         if (ContainsVertex(vertex1) && ContainsVertex(vertex2) && !ContainsEdge(vertex1, vertex2)) {
             edges[vertex1].emplace_back(std::make_pair(vertex2, weight));
             return true;

@@ -10,7 +10,7 @@
 template <typename T>
 class UndirectedWeightedGraph : public WeightedGraph<T> {
 public:
-    bool AddEdge(int vertex1, int vertex2, int weight) {
+    bool AddEdge(int vertex1, int vertex2, T weight) {
         if (vertex1 == vertex2)
             return WeightedGraph<T>::AddEdge(vertex1, vertex2, weight);
         else {
@@ -43,12 +43,12 @@ public:
         return res / 2;
     };
     std::vector<WeightedEdge<T>> GetEdges() const {
-        static std::vector<WeightedEdge<int>> temp;
+        static std::vector<WeightedEdge<T>> temp;
         temp.clear();
         int check = 0;
         for (const auto& it : WeightedGraph<T>::edges) {
             for (const auto& i : it.second) {
-                WeightedEdge<int> we(it.first, i.first, i.second);
+                WeightedEdge<T> we(it.first, i.first, i.second);
                 for (auto & j : temp) {
                     if (j.GetSource() == we.GetDestination() && j.GetDestination() == we.GetSource()) {
                         check = 1;
