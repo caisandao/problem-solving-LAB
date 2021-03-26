@@ -116,7 +116,7 @@ int main() {
   assert(g.GetNeighbors(4)[0] == 5);
   assert(g.GetNeighbors(6).empty());
 
-  WeightedGraph wg;
+  WeightedGraph<int> wg;
 
   assert(wg.AddVertex(1) == true);
   assert(wg.AddVertex(2) == true);
