@@ -173,6 +173,7 @@ int main() {
   assert(uwg.AddVertex(1) == true);
   assert(uwg.AddVertex(2) == true);
   assert(uwg.AddEdge(1, 2, 3) == true);
+  assert(uwg.GetWeight(1, 2) == 3);
   assert(uwg.RemoveEdge(1, 2) == true);
   assert(uwg.RemoveEdge(1, 2) == false);
   assert(uwg.AddVertex(3) == true);
