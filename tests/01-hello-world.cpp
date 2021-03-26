@@ -169,7 +169,7 @@ int main() {
   assert(ug.AddEdge(4, 5) == false);
   assert(ug.RemoveEdge(4, 5) == false);
 
-  UndirectedWeightedGraph uwg;
+  UndirectedWeightedGraph<int> uwg;
   assert(uwg.AddVertex(1) == true);
   assert(uwg.AddVertex(2) == true);
   assert(uwg.AddEdge(1, 2, 3) == true);
