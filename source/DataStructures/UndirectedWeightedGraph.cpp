@@ -46,14 +46,14 @@ int UndirectedWeightedGraph::CountEdges() const {
     return res / 2;
 }
 
-std::vector<WeightedEdge> UndirectedWeightedGraph::GetEdges() const {
+std::vector<WeightedEdge<int>> UndirectedWeightedGraph::GetEdges() const {
 
-    static std::vector<WeightedEdge> temp;
+    static std::vector<WeightedEdge<int>> temp;
     temp.clear();
     int check = 0;
     for (const auto& it : edges) {
         for (const auto& i : it.second) {
-            WeightedEdge we(it.first, i.first, i.second);
+            WeightedEdge<int> we(it.first, i.first, i.second);
             for (auto & j : temp) {
                 if (j.GetSource() == we.GetDestination() && j.GetDestination() == we.GetSource()) {
                     check = 1;
