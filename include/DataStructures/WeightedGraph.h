@@ -102,7 +102,7 @@ public:
         temp  = vertices;
         return temp;
     };
-    virtual std::vector<WeightedEdge<T>> GetEdges() const {
+    std::vector<WeightedEdge<T>> GetEdges() const {
         static std::vector<WeightedEdge<T>> temp;
         temp.clear();
         for (const auto& it : edges) {
