@@ -216,6 +216,35 @@ int main() {
     assert(uwg2.ContainsEdge(1, 1) ==false);
     assert(uwg2.AddEdge(4, 5, 3.7) == false);
     assert(uwg2.RemoveEdge(4, 5) == false);
+
+    WeightedGraph<double> wg2;
+
+    assert(wg2.AddVertex(1) == true);
+    assert(wg2.AddVertex(2) == true);
+    assert(wg2.AddVertex(3) == true);
+    assert(wg2.AddEdge(1, 2, 3.6) == true);
+    assert(wg2.AddEdge(1, 3, 3.7) == true);
+    assert(wg2.GetWeight(1, 2) == 3.6);
+    assert(wg2.GetOutgoingEdges(1).size() == 2);
+    assert(wg2.GetOutgoingEdges(2).empty());
+    assert(wg2.AddVertex(4) == true);
+    assert(wg2.AddVertex(5) == true);
+    assert(wg2.AddEdge(4, 5, 3.4) == true);
+    assert(wg2.GetOutgoingEdges(4)[0].GetWeight() == 3.4);
+    assert(wg2.GetOutgoingEdges(4)[0].GetSource() == 4);
+    assert(wg2.GetOutgoingEdges(4)[0].GetDestination() == 5);
+    assert(wg2.GetOutgoingEdges(1).size() == 2);
+    assert(wg2.GetIncomingEdges(2).size() == 1);
+    assert(wg2.GetIncomingEdges(2)[0].GetWeight() == 3.6);
+    assert(wg2.GetIncomingEdges(2)[0].GetSource() == 1);
+    assert(wg2.GetIncomingEdges(2)[0].GetDestination() == 2);
+    assert(wg2.GetEdges().size() == 3);
+    assert(wg2.AddVertex(6) == true);
+    assert(wg2.AddVertex(7) == true);
+    assert(wg2.AddEdge(6, 7, 3) == true);
+    assert(wg2.GetEdges().size() == 4);
+    assert(wg2.RemoveEdge(6, 7) == true);
+    assert(wg2.GetEdges().size() == 3);
 }
 
 /*
