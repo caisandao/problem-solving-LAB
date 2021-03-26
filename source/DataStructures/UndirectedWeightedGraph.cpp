@@ -10,7 +10,7 @@ bool RemoveEdge(int vertex1, int vertex2);
 virtual int CountEdges() const;
 virtual std::vector<WeightedEdge> GetEdges() const;
  */
-
+/*
 bool UndirectedWeightedGraph::AddEdge(int vertex1, int vertex2, int weight) {
     if (vertex1 == vertex2)
         return WeightedGraph::AddEdge(vertex1, vertex2, weight);
@@ -84,3 +84,4 @@ int UndirectedWeightedGraph::GetDegree(int vertex) const {
     else
         return 0;
 }
+ */
