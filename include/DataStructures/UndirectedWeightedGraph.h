@@ -7,12 +7,12 @@
 
 #include <DataStructures/WeightedGraph.h>
 
-class UndirectedWeightedGraph : public WeightedGraph {
+class UndirectedWeightedGraph : public WeightedGraph<int> {
 public:
     bool AddEdge(int vertex1, int vertex2, int weight);
     bool RemoveEdge(int vertex1, int vertex2);
     int CountEdges() const;
-    std::vector<WeightedEdge> GetEdges() const;
+    std::vector<WeightedEdge<int>> GetEdges() const;
     int GetDegree(int vertex) const;
 };
 

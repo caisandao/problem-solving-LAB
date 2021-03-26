@@ -30,9 +30,10 @@ class Graph {
   std::vector<Edge> edges;
   std::vector<int> vertices;
 };
-*/
+ */
 
-class Graph : public WeightedGraph {
+
+class Graph : public WeightedGraph<int> {
 public:
     virtual bool AddEdge(int vertex1, int vertex2);
     std::vector<Edge> GetEdges() const;

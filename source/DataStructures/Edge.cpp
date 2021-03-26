@@ -5,8 +5,7 @@ Edge::Edge(int s, int d) {
     destination = d;
 }
 
-Edge::~Edge() {
-}
+Edge::~Edge() = default;
 
 int Edge::GetSource() const {
     return source;

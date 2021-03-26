@@ -4,13 +4,10 @@
 
 #include <DataStructures/WeightedGraph.h>
 #include <algorithm>
-
+/*
 WeightedGraph::WeightedGraph() = default;
 
-WeightedGraph::~WeightedGraph() {
-    edges.clear();
-    vertices.clear();
-};
+WeightedGraph::~WeightedGraph() = default;
 
 bool WeightedGraph::AddVertex(int vertex) {
     if (ContainsVertex(vertex))
@@ -43,19 +40,6 @@ bool WeightedGraph::AddEdge(int vertex1, int vertex2, int weight) {
 }
 
 bool WeightedGraph::RemoveEdge(int vertex1, int vertex2) {
-    /*
-    if (!ContainsVertex(vertex1) || !ContainsVertex(vertex2) || !ContainsEdge(vertex1, vertex2))
-        return false;
-    else{
-        for (int i = 0 ; i < edges[vertex1].size() ; ++i) {
-            if (edges[vertex1][i].first == vertex2) {
-                edges[vertex1].erase(edges[vertex1].begin()+i);
-                return true;
-            }
-        }
-    }
-     */
-
     const auto& it = edges.find(vertex1);
     bool check = false;
     if (it != edges.end()) {
@@ -68,17 +52,6 @@ bool WeightedGraph::RemoveEdge(int vertex1, int vertex2) {
         }
     }
     return check;
-    /*
-    bool check = false;
-    for (int i = 0 ; i < edges[vertex1].size() ; ++i) {
-        if (edges[vertex1][i].first == vertex2) {
-            edges[vertex1].erase(edges[vertex1].begin()+i);
-            check = true;
-            break;
-        }
-    }
-    return check;
-    */
 }
 
 int WeightedGraph::CountVertices() const {
@@ -94,20 +67,10 @@ int WeightedGraph::CountEdges() const {
 }
 
 bool WeightedGraph::ContainsVertex(int vertex) const {
-    //std::vector<int>::iterator iter;
     if (find(vertices.begin(), vertices.end(), vertex) != vertices.end())
         return true;
     else
         return false;
-    /*
-    bool check = false;
-    for (int v : vertices) {
-        if (v == vertex) {
-            return true;
-        }
-    }
-    return check;
-     */
 }
 
 bool WeightedGraph::ContainsEdge(int vertex1, int vertex2) const {
@@ -120,19 +83,6 @@ bool WeightedGraph::ContainsEdge(int vertex1, int vertex2) const {
         }
     }
     return false;
-    /*
-    bool check = false;
-    for (const auto& it : edges) {
-        if (it.first == vertex1) {
-            for (const auto& i : it.second) {
-                if (i.first == vertex2){
-                    return true;
-                }
-            }
-        }
-    }
-    return check;
-     */
 }
 
 int WeightedGraph::GetWeight(int vertex1, int vertex2) const {
@@ -146,19 +96,6 @@ int WeightedGraph::GetWeight(int vertex1, int vertex2) const {
     } else {
         return 0;
     }
-
-    /*
-    int res = 0; // 若没有这条边则为未定义行为，此处返回0
-    for (const auto& it : edges) {
-        if (it.first == vertex1) {
-            for (const auto& i : it.second) {
-                if (i.first == vertex2)
-                    return i.second;
-            }
-        }
-    }
-    return res;
-     */
 }
 
 std::vector<int> WeightedGraph::GetVertices() const {
@@ -216,13 +153,6 @@ int WeightedGraph::GetDegree(int vertex) const {
         return iter->second.size();
     else
         return 0;
-    /*
-    for (const auto& it : edges) {
-        if (it.first == vertex) {
-            return it.second.size();
-        }
-    }
-     */
 }
 
 std::vector<int> WeightedGraph::GetNeighbors(int vertex) const {
@@ -234,13 +164,5 @@ std::vector<int> WeightedGraph::GetNeighbors(int vertex) const {
             temp.emplace_back(i.first);
     }
     return temp;
-    /*
-    for (const auto& it : edges) {
-        if (it.first == vertex) {
-            for (const auto& i : it.second)
-                temp.emplace_back(i.first);
-        }
-    }
-    return temp;
-     */
 }
+*/
