@@ -107,7 +107,7 @@ public:
         temp.clear();
         for (const auto& it : edges) {
             for (const auto& i : it.second) {
-                WeightedEdge we(it.first, i.first, i.second);
+                WeightedEdge<T> we(it.first, i.first, i.second);
                 temp.emplace_back(we);
             }
         }
@@ -119,7 +119,7 @@ public:
         for (const auto& it : edges) {
             for (const auto i : it.second) {
                 if (i.first == vertex) {
-                    WeightedEdge we(it.first, i.first, i.second);
+                    WeightedEdge<T> we(it.first, i.first, i.second);
                     temp.emplace_back(we);
                 }
             }
@@ -132,7 +132,7 @@ public:
         for (const auto& it : edges) {
             if (it.first == vertex) {
                 for (const auto& i : it.second) {
-                    WeightedEdge we(it.first, i.first, i.second);
+                    WeightedEdge<T> we(it.first, i.first, i.second);
                     temp.emplace_back(we);
                 }
                 break;
