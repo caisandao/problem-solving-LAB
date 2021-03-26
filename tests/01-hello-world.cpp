@@ -192,6 +192,30 @@ int main() {
   assert(uwg.ContainsEdge(1, 1) ==false);
   assert(uwg.AddEdge(4, 5, 3) == false);
   assert(uwg.RemoveEdge(4, 5) == false);
+
+  UndirectedWeightedGraph<double> uwg2;
+    assert(uwg2.AddVertex(1) == true);
+    assert(uwg2.AddVertex(2) == true);
+    assert(uwg2.AddEdge(1, 2, 3.2) == true);
+    assert(uwg2.GetWeight(1, 2) == 3.2);
+    assert(uwg2.RemoveEdge(1, 2) == true);
+    assert(uwg2.RemoveEdge(1, 2) == false);
+    assert(uwg2.AddVertex(3) == true);
+    assert(uwg2.AddEdge(1, 2, 3.5) == true);
+    assert(uwg2.AddEdge(1, 3, 3.6) == true);
+    assert(uwg2.CountEdges() == 2);
+    assert(uwg2.ContainsEdge(1, 2) == true);
+    assert(uwg2.ContainsEdge(2, 3) == false);
+    assert(uwg2.AddEdge(1, 1, 2.2) == true);
+    assert(uwg2.CountEdges() == 3);
+    assert(uwg2.AddEdge(1, 2, 3.5) == false);
+    assert(uwg2.CountEdges() == 3);
+    assert(uwg2.ContainsEdge(1, 1) == true);
+    assert(uwg2.RemoveEdge(1, 1) == true);
+    assert(uwg2.CountEdges() == 2);
+    assert(uwg2.ContainsEdge(1, 1) ==false);
+    assert(uwg2.AddEdge(4, 5, 3.7) == false);
+    assert(uwg2.RemoveEdge(4, 5) == false);
 }
 
 /*
