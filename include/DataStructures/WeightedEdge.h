@@ -11,7 +11,7 @@
 template <typename T>
 class WeightedEdge {
 public:
-    WeightedEdge(int v1, int v2, int w) {
+    WeightedEdge(int v1, int v2, T w) {
         source = v1;
         destination = v2;
         weight = w;
