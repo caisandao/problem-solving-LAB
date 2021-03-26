@@ -93,7 +93,7 @@ public:
                 }
             }
         } else {
-            return 0;
+            return (T)0;
         }
     };
     std::vector<int> GetVertices() const {
