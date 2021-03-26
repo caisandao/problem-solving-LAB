@@ -6,7 +6,6 @@
 #define GRAPHLIBRARY_WEIGHTEDEDGE_H
 
 #include <DataStructures/Edge.h>
-//#include <DataStructures/WEGeneric.h>
 
 template <typename T>
 class WeightedEdge {
