@@ -5,6 +5,7 @@
 #include <optional>
 #include <stack>
 #include <vector>
+#include <cstring>
 
 template <typename TGraph>
 class DepthFirstSearcher {
