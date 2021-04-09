@@ -17,7 +17,6 @@ class DepthFirstSearcher {
       memset(vis, 0, sizeof(vis));
       std::stack<int> s;
       s.push(start);
-      vis[start] = 1;
       while (!s.empty()) {
           int tmp = s.top();
           action(tmp);
@@ -39,7 +38,6 @@ class DepthFirstSearcher {
       memset(vis, 0, sizeof(vis));
       std::stack<int> s;
       s.push(start);
-      vis[start] = 1;
       while (!s.empty()) {
           int tmp = s.top();
           if (predicate(tmp))
