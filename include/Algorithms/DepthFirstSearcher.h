@@ -20,10 +20,11 @@ class DepthFirstSearcher {
       s.push(start);
       while (!s.empty()) {
           int tmp = s.top();
-          action(tmp);
           s.pop();
-          if (!vis[tmp])
+          if (!vis[tmp]) {
+              action(tmp);
               vis[tmp] = 1;
+          }
           std::vector<int> neighbors = graph->GetNeighbors(tmp);
           for (int & neighbor : neighbors) {
               if (!vis[neighbor])
