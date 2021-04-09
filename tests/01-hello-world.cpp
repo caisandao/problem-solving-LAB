@@ -4,6 +4,7 @@
 #include <iostream>
 #include <DataStructures/UndirectedGraph.h>
 #include <DataStructures/UndirectedWeightedGraph.h>
+#include <Algorithms//DepthFirstSearcher.h>
 using namespace std;
 
 int main() {
@@ -245,6 +246,19 @@ int main() {
     assert(wg2.GetEdges().size() == 4);
     assert(wg2.RemoveEdge(6, 7) == true);
     assert(wg2.GetEdges().size() == 3);
+
+    WeightedGraph<int> wg_a;
+    assert(wg_a.AddVertex(1) == true);
+    assert(wg_a.AddVertex(2) == true);
+    assert(wg_a.AddVertex(3) == true);
+    assert(wg_a.AddVertex(4) == true);
+    assert(wg_a.AddVertex(5) == true);
+    assert(wg_a.AddEdge(1, 2, 3) == true);
+    assert(wg_a.AddEdge(1, 3, 3) == true);
+    assert(wg_a.AddEdge(1, 4, 3) == true);
+    assert(wg_a.AddEdge(3, 4, 3) == true);
+    assert(wg_a.AddEdge(3, 5, 3) == true);
+    DepthFirstSearcher<WeightedEdge<int>>::VisitAllVertices(wg_a, 1, [](int u)->void{printf("%d", u);});
 }
 
 /*
