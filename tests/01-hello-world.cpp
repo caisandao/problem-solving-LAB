@@ -258,7 +258,7 @@ int main() {
     assert(wg_a->AddEdge(1, 4, 3) == true);
     assert(wg_a->AddEdge(3, 4, 3) == true);
     assert(wg_a->AddEdge(3, 5, 3) == true);
-    DepthFirstSearcher<WeightedEdge<int>>::VisitAllVertices(reinterpret_cast<const WeightedEdge<int> *>(wg_a), 1, [](int u)->void{printf("%d", u);});
+    DepthFirstSearcher<WeightedGraph<int>>::VisitAllVertices(wg_a, 1, [](int u)->void{printf("%d", u);});
 }
 
 /*
