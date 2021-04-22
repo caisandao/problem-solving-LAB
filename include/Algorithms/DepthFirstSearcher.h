@@ -10,7 +10,6 @@
 template <typename TGraph>
 class DepthFirstSearcher {
  public:
-<<<<<<< HEAD
   static void VisitAllVertices(const TGraph *graph, int start, const std::function<void(int)> &action) {
       if (!graph->ContainsVertex(start))
           return;
@@ -57,10 +56,6 @@ class DepthFirstSearcher {
       }
       return {};
   };
-=======
-  static void VisitAllVertices(const TGraph *graph, int start, const std::function<void(int)> &action);
-  static std::optional<int> TryFindFirstVertex(const TGraph *graph, int start, const std::function<bool(int)> &predicate);
->>>>>>> 001ee916643456a272dc9c0d449930386b6be8fc
 };
 
 #endif

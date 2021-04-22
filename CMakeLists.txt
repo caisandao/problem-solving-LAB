@@ -6,7 +6,7 @@ find_package(Git)
 set(CMAKE_CXX_STANDARD 17)
 include_directories("include")
 file(GLOB sources "source/**/*.cpp")
-add_library(GraphLibrary ${sources} include/DataStructures/WeightedEdge.h source/DataStructures/WeightedEdge.cpp include/DataStructures/WeightedGraph.h source/DataStructures/WeightedGraph.cpp include/DataStructures/UndirectedGraph.h include/DataStructures/UndirectedWeightedGraph.h source/DataStructures/UndirectedWeightedGraph.cpp include/DataStructures/UndirectedWeightedGraph.h source/DataStructures/UndirectedGraph.cpp include/Algorithms/DepthFirstSearcher.h include/Algorithms/BreadthFirstSearcher.h source/Algorithms/BreadthFirstSearcher.cpp source/Algorithms/DepthFirstSearcher.cpp)
+add_library(GraphLibrary ${sources} include/DataStructures/WeightedEdge.h source/DataStructures/WeightedEdge.cpp include/DataStructures/WeightedGraph.h source/DataStructures/WeightedGraph.cpp include/DataStructures/UndirectedGraph.h include/DataStructures/UndirectedWeightedGraph.h source/DataStructures/UndirectedWeightedGraph.cpp include/DataStructures/UndirectedWeightedGraph.h source/DataStructures/UndirectedGraph.cpp include/Algorithms/DepthFirstSearcher.h include/Algorithms/BreadthFirstSearcher.h source/Algorithms/BreadthFirstSearcher.cpp source/Algorithms/DepthFirstSearcher.cpp include/Algorithms/ShortestPaths.h include/Algorithms/DijkstraShortestPaths.h)
 
 add_custom_target(GitTraceAdd
         COMMAND "${GIT_EXECUTABLE}" add -A . --ignore-errors
