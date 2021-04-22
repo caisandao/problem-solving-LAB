@@ -32,7 +32,7 @@ class BreadthFirstSearcher {
             }
         }
   };
-  static std::optional<int> FindFirstVertex(const TGraph *graph, int start, const std::function<bool(int)> &predicate) {
+  static std::optional<int> TryFindFirstVertex(const TGraph *graph, int start, const std::function<bool(int)> &predicate) {
       if (!graph->ContainsVertex(start))
           return {};
 
