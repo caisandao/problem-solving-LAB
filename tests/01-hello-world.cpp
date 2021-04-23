@@ -4,7 +4,9 @@
 #include <iostream>
 #include <DataStructures/UndirectedGraph.h>
 #include <DataStructures/UndirectedWeightedGraph.h>
-#include <Algorithms//DepthFirstSearcher.h>
+#include <Algorithms/DepthFirstSearcher.h>
+#include <Algorithms/ShortestPaths.h>
+#include <Algorithms/DijkstraShortestPaths.h>;
 using namespace std;
 
 int main() {
@@ -259,6 +261,35 @@ int main() {
     assert(wg_a->AddEdge(3, 4, 3) == true);
     assert(wg_a->AddEdge(3, 5, 3) == true);
     DepthFirstSearcher<WeightedGraph<int>>::VisitAllVertices(wg_a, 1, [](int u)->void{printf("%d", u);});
+
+    WeightedGraph<int> wg_for_dij;
+    assert(wg_for_dij.AddVertex(1));
+    assert(wg_for_dij.AddVertex(2));
+    assert(wg_for_dij.AddVertex(3));
+    assert(wg_for_dij.AddVertex(4));
+    assert(wg_for_dij.AddVertex(5));
+    assert(wg_for_dij.AddEdge(1, 2, 1));
+    assert(wg_for_dij.AddEdge(1, 5, 4));
+    assert(wg_for_dij.AddEdge(1, 3, 2));
+    assert(wg_for_dij.AddEdge(2, 5, 2));
+    assert(wg_for_dij.AddEdge(5, 4, 1));
+    assert(wg_for_dij.AddEdge(3, 4, 3));
+
+    DijkstraShortestPaths<WeightedGraph, int> ds(&wg_for_dij, 1);
+    assert(ds.HasPathTo(2));
+    assert(ds.HasPathTo(3));
+    assert(ds.HasPathTo(4));
+    assert(ds.HasPathTo(5));
+    assert(ds.TryGetDistanceTo(2) == 1);
+    assert(ds.TryGetDistanceTo(3) == 2);
+    assert(ds.TryGetDistanceTo(4) == 4);
+    assert(ds.TryGetDistanceTo(5) == 3);
+    vector<int> tmp;
+    tmp.emplace_back(1);
+    tmp.emplace_back(2);
+    tmp.emplace_back(5);
+    assert(ds.TryGetShortestPathTo(5) == tmp);
+
 }
 
 /*
