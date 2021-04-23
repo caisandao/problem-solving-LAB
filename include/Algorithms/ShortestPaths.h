@@ -6,24 +6,22 @@
 
 template <template<typename> class TGraph, typename TValue>
 class ShortestPaths {
- public:
-  ShortestPaths() = delete;
+protected:
+    TGraph<TValue> *graph;
+    int source;
+public:
+  ShortestPaths() = delete; // 显式禁用没有参数的构造函数
   ShortestPaths(const TGraph<TValue> *graph, int source) {
-
+      this->graph = graph;
+      this->source = source;
   };
   virtual ~ShortestPaths() {
 
   };
- public:
-  bool HasPathTo(int destination) const {
-
-  };
-  std::optional<TValue> TryGetDistanceTo(int destination) const {
-
-  };
-  std::optional<std::vector<int>> TryGetShortestPathTo(int destination) const {
-
-  };
+public:
+  virtual bool HasPathTo(int destination) const = 0;
+  virtual std::optional<TValue> TryGetDistanceTo(int destination) const = 0;
+  virtual std::optional<std::vector<int>> TryGetShortestPathTo(int destination) const = 0;
 };
 
 #endif
