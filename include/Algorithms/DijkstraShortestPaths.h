@@ -65,7 +65,7 @@ public:
             return false;
     };
     std::optional<TValue> TryGetDistanceTo(int destination) const {
-        return dis[destination];
+        return dis.at(destination);
     };
     std::optional<std::vector<int>> TryGetShortestPathTo(int destination) const {
         if (!HasPathTo(destination))
