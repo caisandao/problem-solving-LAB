@@ -46,8 +46,8 @@ public:
             if (vis[cur_idx]) continue;
             vis[cur_idx] = true;
             for (auto iter = graph->edges.at(cur_idx).begin(); iter != graph->edges.at(cur_idx).end(); iter++) {
-                const TValue new_dis = cur_dis + *iter.second;
-                const int new_idx = *iter.first;
+                const TValue new_dis = cur_dis + (*iter).second;
+                const int new_idx = (*iter).first;
                 if (dis[new_idx] == std::nullopt || new_dis < dis[new_idx]) {
                     pq.push({new_dis, new_idx});
                     dis[new_idx] = new_dis;
