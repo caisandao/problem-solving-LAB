@@ -38,16 +38,14 @@ public:
         dis[source] = TValue();
         pq.emplace(TValue(), source);
         paths[source].emplace_back(source);
-        int count = 0;
         while (!pq.empty()) {
-            count++;
-            if (count > 10000) exit(0);
             const auto state = pq.top();
             pq.pop();
             const TValue cur_dis = state.first;
             const int cur_idx = state.second;
             if (vis[cur_idx]) continue;
             vis[cur_idx] = true;
+            /*
             for (const auto& edge : graph->edges.at(cur_idx)) {
                 const TValue new_dis = cur_dis + edge.second;
                 const int new_idx = edge.first;
@@ -58,6 +56,7 @@ public:
                     paths[new_idx].emplace_back(new_idx);
                 }
             }
+             */
         }
 
     };
