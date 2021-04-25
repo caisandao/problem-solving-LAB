@@ -45,8 +45,9 @@ public:
             const int cur_idx = state.second;
             if (vis[cur_idx]) continue;
             vis[cur_idx] = true;
+            /*
             for (auto iter = graph->edges.at(cur_idx).begin(); iter != graph->edges.at(cur_idx).end(); iter++) {
-                /*
+
                 const TValue new_dis = cur_dis + (*iter).second;
                 const int new_idx = (*iter).first;
                 if (dis[new_idx] == std::nullopt || new_dis < dis[new_idx]) {
@@ -55,8 +56,9 @@ public:
                     paths[new_idx] = paths[cur_idx];
                     paths[new_idx].emplace_back(new_idx);
                 }
-                 */
+
             }
+             */
             /*
             for (const auto& edge : graph->edges.at(cur_idx)) {
                 const TValue new_dis = cur_dis + edge.second;
