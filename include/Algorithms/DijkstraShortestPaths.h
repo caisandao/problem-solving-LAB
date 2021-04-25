@@ -26,9 +26,11 @@ public:
         vertices.clear();
         paths.clear();
         vertices = graph->GetVertices();
+        std::vector<int> tmp;
         for (int & vertex : vertices) {
             vis.insert(std::make_pair(vertex, false));
             dis.insert(std::make_pair(vertex, std::nullopt));
+            paths.insert(std::make_pair(vertex, tmp));
             //paths[vertex].emplace_back(source);
             //paths[vertex].emplace_back(vertex);
         }
@@ -63,7 +65,7 @@ public:
         paths.clear();
     };
     bool HasPathTo(int destination) const {
-        return false;
+        //return false;
         if (!this->graph->ContainsVertex(destination)) return false;
         if (dis.at(destination) != std::nullopt)
             return true;
