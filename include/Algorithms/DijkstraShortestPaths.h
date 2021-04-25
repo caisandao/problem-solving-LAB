@@ -32,13 +32,14 @@ public:
             dis.insert(std::make_pair(vertex, std::nullopt));
             paths.insert(std::make_pair(vertex, tmp));
         }
-        /*
+
         if (!graph->ContainsVertex(source)) return;
         std::priority_queue<std::pair<TValue, int>, std::vector<std::pair<TValue, int>>, std::greater<std::pair<TValue, int>>> pq;
         dis[source] = TValue();
         pq.emplace(TValue(), source);
         paths[source].emplace_back(source);
         while (!pq.empty()) {
+            /*
             const auto state = pq.top();
             pq.pop();
             const TValue cur_dis = state.first;
@@ -55,8 +56,9 @@ public:
                     paths[new_idx].emplace_back(new_idx);
                 }
             }
+             */
         }
-         */
+
     };
     ~DijkstraShortestPaths() {
         vis.clear();
