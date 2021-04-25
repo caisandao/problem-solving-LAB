@@ -21,7 +21,6 @@ private:
 public:
     DijkstraShortestPaths() = delete;
     DijkstraShortestPaths(const TGraph<TValue> *graph, int source) : ShortestPaths<TGraph, TValue>(graph, source) {
-        if (!graph->ContainsVertex(source)) return;
         vis.clear();
         dis.clear();
         vertices.clear();
@@ -33,6 +32,7 @@ public:
             //paths[vertex].emplace_back(source);
             //paths[vertex].emplace_back(vertex);
         }
+        if (!graph->ContainsVertex(source)) return;
         std::priority_queue<std::pair<TValue, int>, std::vector<std::pair<TValue, int>>, std::greater<std::pair<TValue, int>>> pq;
         dis[source] = TValue();
         pq.emplace(TValue(), source);
