@@ -6,7 +6,7 @@
 #include <DataStructures/UndirectedWeightedGraph.h>
 #include <Algorithms/DepthFirstSearcher.h>
 #include <Algorithms/ShortestPaths.h>
-#include <Algorithms/DijkstraShortestPaths.h>;
+#include <Algorithms/DijkstraShortestPaths.h>
 using namespace std;
 
 int main() {

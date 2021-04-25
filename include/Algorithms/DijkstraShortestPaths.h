@@ -70,8 +70,9 @@ public:
     std::optional<std::vector<int>> TryGetShortestPathTo(int destination) const {
         if (!HasPathTo(destination))
             return std::nullopt;
-        else
-            return paths[destination];
+        else {
+            return this->paths[destination];
+        }
     };
 };
 
