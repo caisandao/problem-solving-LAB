@@ -47,7 +47,7 @@ public:
             vis[cur_idx] = true;
             for (const auto& edge : graph->GetOutgoingEdges(cur_idx)) {
                 const TValue new_dis = cur_dis + edge.GetWeight();
-                const int new_idx = edge.GetSource();
+                const int new_idx = edge.GetDestination();
                 if (dis[new_idx] == std::nullopt || new_dis < dis[new_idx]) {
                     pq.push({new_dis, new_idx});
                     dis[new_idx] = new_dis;
