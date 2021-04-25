@@ -59,7 +59,7 @@ public:
         paths.clear();
     };
     bool HasPathTo(int destination) const {
-        if (dis[destination] != std::nullopt)
+        if (dis.at(destination) != std::nullopt)
             return true;
         else
             return false;
