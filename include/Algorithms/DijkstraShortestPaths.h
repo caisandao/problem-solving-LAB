@@ -33,12 +33,15 @@ public:
             paths.insert(std::make_pair(vertex, tmp));
         }
 
-        //if (!graph->ContainsVertex(source)) return;
+        if (!graph->ContainsVertex(source)) return;
         std::priority_queue<std::pair<TValue, int>, std::vector<std::pair<TValue, int>>, std::greater<std::pair<TValue, int>>> pq;
         dis[source] = TValue();
         pq.emplace(TValue(), source);
         paths[source].emplace_back(source);
+        int count = 0;
         while (!pq.empty()) {
+            count++;
+            if (count > 10000) exit(0);
             const auto state = pq.top();
             pq.pop();
             const TValue cur_dis = state.first;
@@ -50,11 +53,9 @@ public:
                 const int new_idx = edge.first;
                 if (dis[new_idx] == std::nullopt || new_dis < dis[new_idx]) {
                     pq.push({new_dis, new_idx});
-                    /*
                     dis[new_idx] = new_dis;
                     paths[new_idx] = paths[cur_idx];
                     paths[new_idx].emplace_back(new_idx);
-                     */
                 }
             }
         }
