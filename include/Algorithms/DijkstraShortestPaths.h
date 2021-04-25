@@ -81,6 +81,7 @@ public:
             return std::nullopt;
         else {
             ret = paths.at(destination);
+            if (ret.empty()) return std::nullopt;
             return ret;
         }
     };
