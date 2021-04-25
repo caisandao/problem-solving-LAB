@@ -71,7 +71,10 @@ public:
         if (!HasPathTo(destination))
             return std::nullopt;
         else {
-            return this->paths[destination];
+            for (const auto& iter : paths) {
+                if (iter.first == destination)
+                    return iter.second;
+            }
         }
     };
 };
