@@ -63,6 +63,7 @@ public:
         paths.clear();
     };
     bool HasPathTo(int destination) const {
+        return false;
         if (!this->graph->ContainsVertex(destination)) return false;
         if (dis.at(destination) != std::nullopt)
             return true;
@@ -70,7 +71,7 @@ public:
             return false;
     };
     std::optional<TValue> TryGetDistanceTo(int destination) const {
-        return std::nullopt;
+        //return std::nullopt;
         if (!this->graph->ContainsVertex(destination)) return std::nullopt;
         return dis.at(destination);
     };
