@@ -70,7 +70,7 @@ public:
             return false;
     };
     std::optional<TValue> TryGetDistanceTo(int destination) const {
-        if (!this->graph.ContainsVertex(destination)) return std::nullopt;
+        if (!this->graph->ContainsVertex(destination)) return std::nullopt;
         return dis.at(destination);
     };
     std::optional<std::vector<int>> TryGetShortestPathTo(int destination) const {
