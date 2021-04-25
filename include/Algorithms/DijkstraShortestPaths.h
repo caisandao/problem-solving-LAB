@@ -22,6 +22,10 @@ public:
     DijkstraShortestPaths() = delete;
     DijkstraShortestPaths(const TGraph<TValue> *graph, int source) : ShortestPaths<TGraph, TValue>(graph, source) {
         if (!graph->ContainsVertex(source)) return;
+        vis.clear();
+        dis.clear();
+        vertices.clear();
+        paths.clear();
         vertices = graph->GetVertices();
         for (int & vertex : vertices) {
             vis.insert(std::make_pair(vertex, false));
@@ -72,12 +76,6 @@ public:
             return std::nullopt;
         else {
             return paths.at(destination);
-            /*
-            for (const auto& iter : paths) {
-                if (iter.first == destination)
-                    return iter.second;
-            }
-             */
         }
     };
 };
