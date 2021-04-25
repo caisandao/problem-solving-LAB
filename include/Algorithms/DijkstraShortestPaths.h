@@ -29,7 +29,7 @@ public:
             //paths[vertex].emplace_back(source);
             //paths[vertex].emplace_back(vertex);
         }
-        std::priority_queue<std::pair<std::optional<TValue>, int>, std::vector<std::pair<std::optional<TValue>, int>>, std::greater<std::pair<std::optional<TValue>, int>>> pq;
+        std::priority_queue<std::pair<TValue, int>, std::vector<std::pair<TValue, int>>, std::greater<std::pair<TValue, int>>> pq;
         dis[source] = TValue();
         pq.emplace(TValue(), source);
         paths[source].emplace_back(source);
