@@ -36,7 +36,7 @@ public:
         while (!pq.empty()) {
             const auto  state = pq.top();
             pq.pop();
-            const std::optional<TValue> cur_dis = state.first;
+            const TValue cur_dis = state.first;
             const int cur_idx = state.second;
             if (vis[cur_idx]) continue;
             vis[cur_idx] = true;
