@@ -7,7 +7,7 @@
 template <template<typename> class TGraph, typename TValue>
 class ShortestPaths {
 protected:
-    TGraph<TValue> *graph;
+    const TGraph<TValue> *graph;
     int source;
 public:
   ShortestPaths() = delete; // 显式禁用没有参数的构造函数
