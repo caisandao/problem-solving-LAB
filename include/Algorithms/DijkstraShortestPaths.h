@@ -74,11 +74,13 @@ public:
         return dis.at(destination);
     };
     std::optional<std::vector<int>> TryGetShortestPathTo(int destination) const {
-        if (!this->graph->ContainsVertex(destination)) return std::nullopt;
+        //if (!this->graph->ContainsVertex(destination)) return std::nullopt;
+        std::vector<int> ret;
         if (!HasPathTo(destination))
-            return std::nullopt;
+            return ret;
         else {
-            return paths.at(destination);
+            ret = paths.at(destination);
+            return ret;
         }
     };
 };
