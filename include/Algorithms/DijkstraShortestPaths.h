@@ -71,7 +71,7 @@ public:
         if (!HasPathTo(destination))
             return std::nullopt;
         else
-            return this->paths[destination];
+            return paths[destination];
     };
 };
 
