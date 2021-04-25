@@ -77,7 +77,8 @@ public:
         //if (!this->graph->ContainsVertex(destination)) return std::nullopt;
         std::vector<int> ret;
         if (!HasPathTo(destination))
-            return ret;
+            //return ret;
+            return std::nullopt;
         else {
             ret = paths.at(destination);
             return ret;
