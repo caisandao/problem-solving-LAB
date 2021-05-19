@@ -324,7 +324,7 @@ int main() {
     for (int i = 1; i <= 6; ++i) {
         g->AddVertex(i);
     }
-    int flag = 2;
+    int flag = 1;
     g->AddEdge(1, 2, 1 - flag * 1);
     g->AddEdge(2, 3, 9 - flag * 2);
     g->AddEdge(1, 3, 3 - flag * 2);
