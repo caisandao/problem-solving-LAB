@@ -31,17 +31,19 @@ public:
         }
         dis[source] = 0;
         paths[source].emplace_back(source);
+        vis[source] = true;
 
         for (int i = 0; i < vertices.size(); i++) {
             for (int j = 0; j < weighted_edges.size(); j++) {
                 int cur_source = weighted_edges[j].GetSource();
                 int cur_destination = weighted_edges[j].GetDestination();
                 int cur_weight = weighted_edges[j].GetWeight();
-                if ((vis[cur_source] && vis[cur_destination]) ||
+                if ((vis[cur_source] && !vis[cur_destination]) ||
                     (dis[cur_destination] > dis[cur_source] + cur_weight)) {
                     dis[cur_destination] = dis[cur_source] + cur_weight;
                     paths[cur_destination] = paths[cur_source];
                     paths[cur_destination].emplace_back(cur_destination);
+                    vis[cur_destination] = true;
                 }
             }
         }
@@ -64,14 +66,16 @@ public:
     };
 
     bool HasPathTo(int destination) const {
+        if (exist_negative_cyc) return false;
         if (!this->graph->ContainsVertex(destination)) return false;
-        if (dis.at(destination) != std::nullopt)
+        if (this->vis[destination])
             return true;
         else
             return false;
     };
 
     std::optional<typename TGraph::value_type> TryGetDistanceTo(int destination) const {
+        if (exist_negative_cyc) return std::nullopt;
         if (!this->graph->ContainsVertex(destination)) return std::nullopt;
         return dis.at(destination);
     };
