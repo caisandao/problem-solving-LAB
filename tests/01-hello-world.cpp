@@ -304,7 +304,7 @@ int main() {
     assert(wg_for_bij.AddEdge(5, 4, 1));
     assert(wg_for_bij.AddEdge(3, 4, 3));
     BellmanFordShortestPaths<WeightedGraph<int>> bs(&wg_for_bij, 1);
-    
+
 
 }
 

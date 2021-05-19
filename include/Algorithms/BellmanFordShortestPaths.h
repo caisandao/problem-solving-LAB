@@ -34,11 +34,19 @@ public:
             for (int j = 0; j < weighted_edges.size(); j++) {
                 if (dis[weighted_edges[j].GetSource()] == std::nullopt)
                     continue;
-                if ((dis[weighted_edges[j].GetDestination()] == std::nullopt /*&& dis[weighted_edges[j].GetSource()] != std::nullopt*/) ||
-                     dis[weighted_edges[j].GetDestination()] > dis[weighted_edges[j].GetSource()] + weighted_edges[j].GetWeight()) {
-                    dis[weighted_edges[j].GetDestination()] = dis[weighted_edges[j].GetSource()] + weighted_edges[j].GetWeight();
+                const typename TGraph::value_type source_dis = dis[weighted_edges[j].GetSource()];
+                if (dis[weighted_edges[j].GetDestination()] == std::nullopt) {
+                    dis[weighted_edges[j].GetDestination()] = source_dis + weighted_edges[j].GetWeight();
                     paths[weighted_edges[j].GetDestination()] = paths[weighted_edges[j].GetSource()];
                     paths[weighted_edges[j].GetDestination()].emplace_back(weighted_edges[j].GetDestination());
+                    continue;
+                }
+                const typename TGraph::value_type destination_dis = dis[weighted_edges[j].GetDestination()];
+                if (destination_dis > source_dis + weighted_edges[j].GetWeight()) {
+                    dis[weighted_edges[j].GetDestination()] = source_dis + weighted_edges[j].GetWeight();
+                    paths[weighted_edges[j].GetDestination()] = paths[weighted_edges[j].GetSource()];
+                    paths[weighted_edges[j].GetDestination()].emplace_back(weighted_edges[j].GetDestination());
+                    continue;
                 }
             }
         }
