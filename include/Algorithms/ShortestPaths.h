@@ -1,4 +1,4 @@
-/*
+
 #ifndef SHORTEST_PATHS
 #define SHORTEST_PATHS
 
@@ -28,8 +28,9 @@ public:
 };
 
 #endif
-*/
 
+
+/*
 #ifndef SHORTEST_PATHS
 #define SHORTEST_PATHS
 
@@ -82,3 +83,4 @@ public:
 
 
 #endif
+*/
