@@ -32,12 +32,13 @@ public:
         paths[source].emplace_back(source);
         vis[source] = true;
 
-        for (int i = 0; i < vertices.size(); i++) {
+        for (int i = 1; i < vertices.size(); i++) {
             for (int j = 0; j < weighted_edges.size(); j++) {
                 int cur_source = weighted_edges[j].GetSource();
                 int cur_destination = weighted_edges[j].GetDestination();
                 typename TGraph::value_type cur_weight = weighted_edges[j].GetWeight();
-                if ((vis[cur_source] && !vis[cur_destination]) ||
+                if (!vis[cur_source]) continue;
+                if (!vis[cur_destination] ||
                     (dis[cur_destination] > dis[cur_source] + cur_weight)) {
                     dis[cur_destination] = dis[cur_source] + cur_weight;
                     paths[cur_destination] = paths[cur_source];
