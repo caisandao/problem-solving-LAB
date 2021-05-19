@@ -1,7 +1,7 @@
 //
 // Created by ASUS on 2021/5/19.
 //
-
+/*
 #ifndef GRAPHLIBRARY_BELLMANFORDSHORTESTPATHS_H
 #define GRAPHLIBRARY_BELLMANFORDSHORTESTPATHS_H
 
@@ -92,6 +92,80 @@ public:
             return ret;
         }
     };
+};
+
+#endif //GRAPHLIBRARY_BELLMANFORDSHORTESTPATHS_H
+*/
+
+//
+// Created by mojito on 2021/4/28.
+//
+
+#ifndef GRAPHLIBRARY_BELLMANFORDSHORTESTPATHS_H
+#define GRAPHLIBRARY_BELLMANFORDSHORTESTPATHS_H
+
+#include "Algorithms/ShortestPaths.h"
+//#include "Exceptions/NegativeCycleException.h"
+#include <queue>
+#include <set>
+
+#define SPDistance ShortestPaths<TGraph>::Distance
+#define SPPath ShortestPaths<TGraph>::Path
+
+template<typename TGraph>
+class BellmanFordShortestPaths : public ShortestPaths<TGraph> {
+public:
+    typedef typename TGraph::value_type TValue;
+
+public:
+    BellmanFordShortestPaths() = delete;
+
+    ~BellmanFordShortestPaths() = default;
+
+    BellmanFordShortestPaths(const TGraph *graph, int source) : ShortestPaths<TGraph>(graph, source){
+        std::unordered_map<int, int> in_queue_times;
+        std::vector<int> vertex = graph->GetVertices();
+        int max_times = vertex.size();
+        for(int vtx : vertex)
+            in_queue_times.emplace(vtx, 0);
+
+        if (!graph->ContainsVertex(source))  return;
+        std::queue<int> q;
+        std::set<int> in_queue;
+        q.push(source);
+        in_queue_times[source]++;
+
+        in_queue.emplace(source);
+        while (!q.empty()){
+            int cur_idx = q.front();    q.pop();
+
+            //if (in_queue_times[cur_idx] > max_times)//负环
+            //    throw NegativeCycleException("Bellman-Ford");
+
+            TValue cur_dis = SPDistance.at(cur_idx);
+            in_queue.erase(cur_idx);
+            std::vector<int> Neighbors = graph->GetNeighbors(cur_idx);
+            for (const auto new_idx : Neighbors){
+                TValue new_dis = SPDistance.at(cur_idx) + graph->GetWeight(cur_idx, new_idx);
+                if (SPDistance.count(new_idx) && SPDistance.at(new_idx) <= new_dis)
+                    continue;
+                if (SPDistance.count(new_idx) == 0)
+                    SPDistance.emplace(new_idx, new_dis);
+                else
+                    SPDistance.at(new_idx) = new_dis;
+                if (!SPPath.count(new_idx)) SPPath.emplace(new_idx, std::vector<int>{});
+                SPPath[new_idx] = SPPath[cur_idx];
+                SPPath[new_idx].emplace_back(new_idx);
+                if (!in_queue.count(new_idx)){
+                    q.push(new_idx);
+                    in_queue_times[new_idx]++;
+                    in_queue.emplace(new_idx);
+                }
+            }
+        }
+
+
+    }
 };
 
 #endif //GRAPHLIBRARY_BELLMANFORDSHORTESTPATHS_H
