@@ -25,7 +25,7 @@ public:
         weighted_edges = graph->GetEdges();
         std::vector<int> tmp;
         for (int & vertex : vertices) {
-            dis.insert({vertex, typename TGraph::value_type()});
+            dis.insert(std::make_pair(vertex, typename TGraph::value_type()));
             paths.insert(std::make_pair(vertex, tmp));
             vis.insert(std::make_pair(vertex, false));
         }
