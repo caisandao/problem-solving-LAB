@@ -33,7 +33,7 @@ public:
         paths[source].emplace_back(source);
         vis[source] = true;
 
-        for (int i = 1; i < vertices.size(); i++) {
+        for (int i = 0; i < vertices.size(); i++) {
             for (int j = 0; j < weighted_edges.size(); j++) {
                 int cur_source = weighted_edges[j].GetSource();
                 int cur_destination = weighted_edges[j].GetDestination();
