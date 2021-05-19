@@ -56,6 +56,7 @@ public:
                 break;
             }
         }
+        paths[source].emplace_back(source);
     };
 
     ~BellmanFordShortestPaths() {
