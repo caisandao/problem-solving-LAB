@@ -64,7 +64,7 @@ public:
     };
 
     bool HasPathTo(int destination) const {
-        if (!this->graph->ContainVertex(destination)) return false;
+        if (!this->graph->ContainsVertex(destination)) return false;
         if (dis.at(destination) != std::nullopt)
             return true;
         else
