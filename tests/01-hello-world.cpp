@@ -7,6 +7,7 @@
 #include <Algorithms/DepthFirstSearcher.h>
 #include <Algorithms/ShortestPaths.h>
 #include <Algorithms/DijkstraShortestPaths.h>
+#include <Algorithms/BellmanFordShortestPaths.h>
 using namespace std;
 
 int main() {
@@ -289,6 +290,21 @@ int main() {
     tmp.emplace_back(2);
     tmp.emplace_back(5);
     assert(ds.TryGetShortestPathTo(5) == tmp);
+
+    WeightedGraph<int> wg_for_bij;
+    assert(wg_for_bij.AddVertex(1));
+    assert(wg_for_bij.AddVertex(2));
+    assert(wg_for_bij.AddVertex(3));
+    assert(wg_for_bij.AddVertex(4));
+    assert(wg_for_bij.AddVertex(5));
+    assert(wg_for_bij.AddEdge(1, 2, 1));
+    assert(wg_for_bij.AddEdge(1, 5, 4));
+    assert(wg_for_bij.AddEdge(1, 3, 2));
+    assert(wg_for_bij.AddEdge(2, 5, 2));
+    assert(wg_for_bij.AddEdge(5, 4, 1));
+    assert(wg_for_bij.AddEdge(3, 4, 3));
+    BellmanFordShortestPaths<WeightedGraph<int>> bs(&wg_for_bij, 1);
+    
 
 }
 
