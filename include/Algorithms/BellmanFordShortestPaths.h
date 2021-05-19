@@ -35,7 +35,7 @@ public:
         for (int i = 0; i < vertices.size(); i++) {
             for (int j = 0; j < weighted_edges.size(); j++) {
                 int cur_source = weighted_edges[j].GetSource();
-                int cur_destination = weighted_edges[j].GetDestination;
+                int cur_destination = weighted_edges[j].GetDestination();
                 int cur_weight = weighted_edges[j].GetWeight();
                 if ((vis[cur_source] && vis[cur_destination]) ||
                     (dis[cur_destination] > dis[cur_source] + cur_weight)) {
