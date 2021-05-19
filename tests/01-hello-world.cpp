@@ -318,6 +318,8 @@ int main() {
     tmp2.emplace_back(5);
     assert(bs.TryGetShortestPathTo(5) == tmp2);
 
+    WeightedGraph<int> wgs;
+
 }
 
 /*
