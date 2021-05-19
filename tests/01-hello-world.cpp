@@ -304,7 +304,19 @@ int main() {
     assert(wg_for_bij.AddEdge(5, 4, 1));
     assert(wg_for_bij.AddEdge(3, 4, 3));
     BellmanFordShortestPaths<WeightedGraph<int>> bs(&wg_for_bij, 1);
-
+    assert(bs.HasPathTo(2));
+    assert(bs.HasPathTo(3));
+    assert(bs.HasPathTo(4));
+    assert(bs.HasPathTo(5));
+    assert(bs.TryGetDistanceTo(2) == 1);
+    assert(bs.TryGetDistanceTo(3) == 2);
+    assert(bs.TryGetDistanceTo(4) == 4);
+    assert(bs.TryGetDistanceTo(5) == 3);
+    vector<int> tmp2;
+    tmp2.emplace_back(1);
+    tmp2.emplace_back(2);
+    tmp2.emplace_back(5);
+    assert(bs.TryGetShortestPathTo(5) == tmp2);
 
 }
 
