@@ -11,9 +11,9 @@ class MultiSourceShortestPaths {
   explicit MultiSourceShortestPaths(const TGraph *graph);
   virtual ~MultiSourceShortestPaths();
  public:
-  bool HasPathTo(int source, int destination) const;
-  std::optional<TValue> TryGetDistanceTo(int source, int destination) const;
-  std::optional<std::vector<int>> TryGetShortestPathTo(int source, int destination) const;
+  bool HasPathOf(int source, int destination) const;
+  std::optional<TValue> TryGetDistanceOf(int source, int destination) const;
+  std::optional<std::vector<int>> TryGetShortestPathOf(int source, int destination) const;
 };
 
 #endif
