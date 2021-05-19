@@ -21,6 +21,7 @@ private:
 public:
     BellmanFordShortestPaths() = delete;
     BellmanFordShortestPaths(const TGraph *graph, int source) : ShortestPaths<TGraph>(graph, source) {
+        if (!graph->ContainsVertex(source)) return;
         vertices = graph->GetVertices();
         weighted_edges = graph->GetEdges();
         std::vector<int> tmp;
@@ -76,7 +77,7 @@ public:
 
     std::optional<typename TGraph::value_type> TryGetDistanceTo(int destination) const {
         //if (exist_negative_cyc) return std::nullopt;
-        if (!this->graph->ContainsVertex(destination)) return std::nullopt;
+        if (!HasPathTo(destination)) return std::nullopt;
         return dis.at(destination);
     };
 
