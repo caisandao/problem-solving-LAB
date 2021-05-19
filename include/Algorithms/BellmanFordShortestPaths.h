@@ -28,7 +28,7 @@ public:
         for (auto & vertex : vertices) {
             tmp_w = graph->GetOutgoingEdges(vertex);
             for (int i = 0; i < tmp_w.size(); i++) {
-                weighted_edges.insert(tmp_w[i]);
+                weighted_edges.emplace_back(tmp_w[i]);
             }
         }
         std::vector<int> tmp;
