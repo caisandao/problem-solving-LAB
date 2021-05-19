@@ -275,7 +275,7 @@ int main() {
     assert(wg_for_dij.AddEdge(5, 4, 1));
     assert(wg_for_dij.AddEdge(3, 4, 3));
 
-    DijkstraShortestPaths<WeightedGraph, int> ds(&wg_for_dij, 1);
+    DijkstraShortestPaths<WeightedGraph<int>> ds(&wg_for_dij, 1);
     assert(ds.HasPathTo(2));
     assert(ds.HasPathTo(3));
     assert(ds.HasPathTo(4));
