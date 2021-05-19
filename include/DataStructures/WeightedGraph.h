@@ -13,6 +13,7 @@
 template <typename T>
 class WeightedGraph {
 public:
+    typedef T value_type;
     WeightedGraph() = default;
     virtual ~WeightedGraph() = default;
 public:

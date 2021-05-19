@@ -4,14 +4,16 @@
 #include <vector>
 #include <optional>
 
-template <template<typename> class TGraph, typename TValue>
+//template <template<typename> class TGraph, typename TValue>
+template<typename TGraph>
 class ShortestPaths {
 protected:
-    const TGraph<TValue> *graph;
+    typedef typename TGraph::value_type TValue;
+    const TGraph *graph;
     int source;
 public:
   ShortestPaths() = delete; // 显式禁用没有参数的构造函数
-  ShortestPaths(const TGraph<TValue> *graph, int source) {
+  ShortestPaths(const TGraph *graph, int source) {
       this->graph = graph;
       this->source = source;
   };

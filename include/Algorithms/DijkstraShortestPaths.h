@@ -11,11 +11,12 @@
 #include <queue>
 
 
-template <template<typename> class TGraph, typename TValue>
-class DijkstraShortestPaths : public ShortestPaths<TGraph, TValue> {
+//template <template<typename> class TGraph, typename TValue>
+template<typename TGraph>
+class DijkstraShortestPaths : public ShortestPaths<TGraph> {
 private:
     std::unordered_map<int, bool> vis;
-    std::unordered_map<int, std::optional<TValue>> dis;
+    std::unordered_map<int, std::optional<TVaule>> dis;
     std::vector<int> vertices;
     std::unordered_map<int, std::vector<int>> paths;
 public:
