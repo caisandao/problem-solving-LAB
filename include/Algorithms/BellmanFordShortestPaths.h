@@ -15,7 +15,8 @@ private:
     bool exist_negative_cyc;
     std::vector<int> vertices;
     std::vector<WeightedEdge<typename TGraph::value_type>> weighted_edges;
-    std::unordered_map<int, std::optional<typename TGraph::value_type>> dis;
+    std::unordered_map<int, typename TGraph::value_type> dis;
+    std::unordered_map<int, bool> vis;
     std::unordered_map<int, std::vector<int>> paths;
 public:
     BellmanFordShortestPaths() = delete;
@@ -24,29 +25,23 @@ public:
         weighted_edges = graph->GetEdges();
         std::vector<int> tmp;
         for (int & vertex : vertices) {
-            dis.insert(std::make_pair(vertex, std::nullopt));
+            dis.insert(std::make_pair(vertex, 0));
             paths.insert(std::make_pair(vertex, tmp));
+            vis.insert(std::make_pair(vertex, false));
         }
         dis[source] = 0;
         paths[source].emplace_back(source);
 
         for (int i = 0; i < vertices.size(); i++) {
             for (int j = 0; j < weighted_edges.size(); j++) {
-                if (dis[weighted_edges[j].GetSource()] == std::nullopt)
-                    continue;
-                const typename TGraph::value_type source_dis = dis[weighted_edges[j].GetSource()];
-                if (dis[weighted_edges[j].GetDestination()] == std::nullopt) {
-                    dis[weighted_edges[j].GetDestination()] = source_dis + weighted_edges[j].GetWeight();
-                    paths[weighted_edges[j].GetDestination()] = paths[weighted_edges[j].GetSource()];
-                    paths[weighted_edges[j].GetDestination()].emplace_back(weighted_edges[j].GetDestination());
-                    continue;
-                }
-                const typename TGraph::value_type destination_dis = dis[weighted_edges[j].GetDestination()];
-                if (destination_dis > source_dis + weighted_edges[j].GetWeight()) {
-                    dis[weighted_edges[j].GetDestination()] = source_dis + weighted_edges[j].GetWeight();
-                    paths[weighted_edges[j].GetDestination()] = paths[weighted_edges[j].GetSource()];
-                    paths[weighted_edges[j].GetDestination()].emplace_back(weighted_edges[j].GetDestination());
-                    continue;
+                int cur_source = weighted_edges[j].GetSource();
+                int cur_destination = weighted_edges[j].GetDestination;
+                int cur_weight = weighted_edges[j].GetWeight();
+                if ((vis[cur_source] && vis[cur_destination]) ||
+                    (dis[cur_destination] > dis[cur_source] + cur_weight)) {
+                    dis[cur_destination] = dis[cur_source] + cur_weight;
+                    paths[cur_destination] = paths[cur_source];
+                    paths[cur_destination].emplace_back(cur_destination);
                 }
             }
         }
@@ -64,6 +59,7 @@ public:
         vertices.clear();
         weighted_edges.clear();
         dis.clear();
+        vis.clear();
         paths.clear();
     };
 
