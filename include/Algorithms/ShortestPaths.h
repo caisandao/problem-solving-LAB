@@ -8,7 +8,7 @@
 template<typename TGraph>
 class ShortestPaths {
 protected:
-    typedef typename TGraph::value_type TValue;
+    //typedef typename TGraph::value_type TValue;
     const TGraph *graph;
     int source;
 public:
@@ -22,7 +22,7 @@ public:
   };
 public:
   virtual bool HasPathTo(int destination) const = 0;
-  virtual std::optional<TValue> TryGetDistanceTo(int destination) const = 0;
+  virtual std::optional<typename TGraph::value_type> TryGetDistanceTo(int destination) const = 0;
   virtual std::optional<std::vector<int>> TryGetShortestPathTo(int destination) const = 0;
 };
 
