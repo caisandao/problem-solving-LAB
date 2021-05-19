@@ -21,7 +21,7 @@ private:
     std::unordered_map<int, std::vector<int>> paths;
 public:
     DijkstraShortestPaths() = delete;
-    DijkstraShortestPaths(const TGraph<TValue> *graph, int source) : ShortestPaths<TGraph, TValue>(graph, source) {
+    DijkstraShortestPaths(const TGraph *graph, int source) : ShortestPaths<TGraph>(graph, source) {
         vis.clear();
         dis.clear();
         vertices.clear();
