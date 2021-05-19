@@ -1,7 +1,7 @@
 //
 // Created by ASUS on 2021/5/19.
 //
-/*
+
 #ifndef GRAPHLIBRARY_BELLMANFORDSHORTESTPATHS_H
 #define GRAPHLIBRARY_BELLMANFORDSHORTESTPATHS_H
 
@@ -23,7 +23,14 @@ public:
     BellmanFordShortestPaths(const TGraph *graph, int source) : ShortestPaths<TGraph>(graph, source) {
         if (!graph->ContainsVertex(source)) return;
         vertices = graph->GetVertices();
-        weighted_edges = graph->GetEdges();
+        //weighted_edges = graph->GetEdges();
+        std::vector<WeightedEdge<typename TGraph::value_type>> tmp_w;
+        for (auto & vertex : vertices) {
+            tmp_w = graph->GetOutgoingEdges(vertex);
+            for (int i = 0; i < tmp_w.size(); i++) {
+                weighted_edges.insert(tmp_w[i]);
+            }
+        }
         std::vector<int> tmp;
         for (int & vertex : vertices) {
             dis.insert(std::make_pair(vertex, typename TGraph::value_type()));
@@ -95,13 +102,13 @@ public:
 };
 
 #endif //GRAPHLIBRARY_BELLMANFORDSHORTESTPATHS_H
-*/
+
 
 //
 // Created by mojito on 2021/4/28.
 //
 
-
+/*
 #ifndef GRAPHLIBRARY_BELLMANFORDSHORTESTPATHS_H
 #define GRAPHLIBRARY_BELLMANFORDSHORTESTPATHS_H
 
@@ -170,3 +177,4 @@ public:
 };
 
 #endif //GRAPHLIBRARY_BELLMANFORDSHORTESTPATHS_H
+*/
