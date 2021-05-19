@@ -16,7 +16,7 @@ template<typename TGraph>
 class DijkstraShortestPaths : public ShortestPaths<TGraph> {
 private:
     std::unordered_map<int, bool> vis;
-    std::unordered_map<int, std::optional<TVaule>> dis;
+    std::unordered_map<int, std::optional<typename TGraph::value_type>> dis;
     std::vector<int> vertices;
     std::unordered_map<int, std::vector<int>> paths;
 public:
@@ -35,19 +35,19 @@ public:
         }
 
         if (!graph->ContainsVertex(source)) return;
-        std::priority_queue<std::pair<TValue, int>, std::vector<std::pair<TValue, int>>, std::greater<std::pair<TValue, int>>> pq;
-        dis[source] = TValue();
-        pq.emplace(TValue(), source);
+        std::priority_queue<std::pair<typename TGraph::value_type, int>, std::vector<std::pair<typename TGraph::value_type, int>>, std::greater<std::pair<typename TGraph::value_type, int>>> pq;
+        dis[source] = typename TGraph::value_type();
+        pq.emplace(typename TGraph::value_type(), source);
         paths[source].emplace_back(source);
         while (!pq.empty()) {
             const auto state = pq.top();
             pq.pop();
-            const TValue cur_dis = state.first;
+            const typename TGraph::value_type cur_dis = state.first;
             const int cur_idx = state.second;
             if (vis[cur_idx]) continue;
             vis[cur_idx] = true;
             for (const auto& edge : graph->GetOutgoingEdges(cur_idx)) {
-                const TValue new_dis = cur_dis + edge.GetWeight();
+                const typename TGraph::value_type new_dis = cur_dis + edge.GetWeight();
                 const int new_idx = edge.GetDestination();
                 if (dis[new_idx] == std::nullopt || new_dis < dis[new_idx]) {
                     pq.push({new_dis, new_idx});
@@ -73,7 +73,7 @@ public:
         else
             return false;
     };
-    std::optional<TValue> TryGetDistanceTo(int destination) const {
+    std::optional<typename TGraph::value_type> TryGetDistanceTo(int destination) const {
         //return std::nullopt;
         if (!this->graph->ContainsVertex(destination)) return std::nullopt;
         return dis.at(destination);
