@@ -18,7 +18,7 @@ private:
     std::vector<std::vector<int>> paths;
     std::unordered_map<int, int> vertices; // key is the true vertex, value is the number
     std::unordered_map<int, int> vertices_inverse; // key is the number, value is the true vertex
-    std::vector<std::vector<bool>> o_edges;
+    //std::vector<std::vector<bool>> o_edges;
 public:
     FloydShortestPaths(const TGraph *graph) : MultiSourceShortestPaths<TGraph>(graph) {
         // initialization of vis and dis
@@ -38,7 +38,7 @@ public:
         for (int i = 0; i < v.size(); i++) {
             dis.emplace_back(tmp);
             vis.emplace_back(tmp_vis);
-            o_edges.emplace_back(tmp_vis);
+            //o_edges.emplace_back(tmp_vis);
         }
 
         // **************************************************
@@ -47,7 +47,7 @@ public:
             for (auto & we : out_edge) {
                 dis[i][vertices[we.GetDestination()]] = we.GetWeight();
                 vis[i][vertices[we.GetDestination()]] = true;
-                o_edges[i][vertices[we.GetDestination()]] = true;
+                //o_edges[i][vertices[we.GetDestination()]] = true;
             }
         }
 
