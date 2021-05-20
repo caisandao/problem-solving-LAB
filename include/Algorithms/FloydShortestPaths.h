@@ -54,7 +54,7 @@ public:
         for (int i = 0; i < v.size(); i++) {
             paths.emplace_back(tmp_path);
         }
-
+        /*
         // relax
         for (int i = 0; i < v.size(); i++) {
             for (int k = 0; k < v.size(); k++) {
@@ -83,6 +83,7 @@ public:
                 }
             }
         }
+        */
     };
 
     ~FloydShortestPaths() {
