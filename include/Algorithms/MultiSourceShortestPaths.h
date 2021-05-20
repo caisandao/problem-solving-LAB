@@ -6,14 +6,18 @@
 
 template <typename TGraph>
 class MultiSourceShortestPaths {
- public:
+protected:
+    const TGraph *graph;
+public:
   MultiSourceShortestPaths() = delete;
-  explicit MultiSourceShortestPaths(const TGraph *graph);
-  virtual ~MultiSourceShortestPaths();
- public:
-  bool HasPathOf(int source, int destination) const;
-  std::optional<TValue> TryGetDistanceOf(int source, int destination) const;
-  std::optional<std::vector<int>> TryGetShortestPathOf(int source, int destination) const;
+  explicit MultiSourceShortestPaths(const TGraph *graph) {
+      this->graph = graph;
+  };
+  virtual ~MultiSourceShortestPaths() = default;
+public:
+  virtual bool HasPathOf(int source, int destination) const = 0;
+  virtual std::optional<typename TGraph::value_type> TryGetDistanceOf(int source, int destination) const = 0;
+  virtual std::optional<std::vector<int>> TryGetShortestPathOf(int source, int destination) const = 0;
 };
 
 #endif
