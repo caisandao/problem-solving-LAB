@@ -366,11 +366,20 @@ int main() {
     wg->AddVertex(2);
     wg->AddVertex(3);
     wg->AddVertex(4);
-    wg->AddEdge(1, 2, 1);
-    wg->AddEdge(2, 3, 2);
-    wg->AddEdge(3, 4, 3);
+    wg->AddVertex(5);
+    wg->AddVertex(6);
+    wg->AddEdge(1,2,0);
+    wg->AddEdge(1,3,1);
+    wg->AddEdge(1,4,2);
+    wg->AddEdge(2,3,7);
+    wg->AddEdge(3,4,0);
+    wg->AddEdge(4,1,2);
+    wg->AddEdge(5,6,3);
+    wg->AddEdge(6,5,4);
+    wg->AddEdge(6,1,0);
     MultiSourceShortestPaths<WeightedGraph<int>> *sp = nullptr;
     sp = new FloydShortestPaths<WeightedGraph<int>>(wg);
+    /*
     assert(sp->HasPathTo(1, 2));
     assert(sp->HasPathTo(2, 3));
     assert(sp->HasPathTo(1, 3));
@@ -383,6 +392,7 @@ int main() {
     assert(sp->TryGetShortestPathTo(1, 3) == tmp);
     tmp.emplace_back(4);
     assert(sp->TryGetShortestPathTo(1, 4) == tmp);
+     */
 }
 
 /*
