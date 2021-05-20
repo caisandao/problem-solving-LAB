@@ -92,7 +92,7 @@ public:
         vertices.clear();
         vertices_inverse.clear();
     };
-    bool HasPathOf(int source, int destination) const {
+    bool HasPathTo(int source, int destination) const {
         if (!this->graph->ContainsVertex(source) || !this->graph->ContainsVertex(destination))
             return false;
         if (vis[vertices.at(source)][vertices.at(destination)])
@@ -100,15 +100,15 @@ public:
         else
             return false;
     };
-    std::optional<typename TGraph::value_type> TryGetDistanceOf(int source, int destination) const {
-        if (!HasPathOf(source, destination))
+    std::optional<typename TGraph::value_type> TryGetDistanceTo(int source, int destination) const {
+        if (!HasPathTo(source, destination))
             return std::nullopt;
         else {
             return dis[vertices.at(source)][vertices.at(destination)];
         }
     };
-    std::optional<std::vector<int>> TryGetShortestPathOf(int source, int destination) const {
-        if (!HasPathOf(source, destination))
+    std::optional<std::vector<int>> TryGetShortestPathTo(int source, int destination) const {
+        if (!HasPathTo(source, destination))
             return std::nullopt;
         else {
             std::vector<int> tmp;

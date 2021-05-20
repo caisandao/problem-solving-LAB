@@ -15,9 +15,9 @@ public:
   };
   virtual ~MultiSourceShortestPaths() = default;
 public:
-  virtual bool HasPathOf(int source, int destination) const = 0;
-  virtual std::optional<typename TGraph::value_type> TryGetDistanceOf(int source, int destination) const = 0;
-  virtual std::optional<std::vector<int>> TryGetShortestPathOf(int source, int destination) const = 0;
+  virtual bool HasPathTo(int source, int destination) const = 0;
+  virtual std::optional<typename TGraph::value_type> TryGetDistanceTo(int source, int destination) const = 0;
+  virtual std::optional<std::vector<int>> TryGetShortestPathTo(int source, int destination) const = 0;
 };
 
 #endif
