@@ -71,9 +71,9 @@ public:
                     if ((vis[i][k] && vis[k][j] && !vis[i][j]) ||
                         (vis[i][k] && vis[k][j] && vis[i][j] && dis[i][j] > dis[i][k] + dis[k][j])) {
                         dis[i][j] = dis[i][k];
-                        std::vector<int> pkj = TryGetShortestPathTo(vertices_inverse[k], vertices_inverse[j]);
+                        std::optional<std::vector<int>> pkj = TryGetShortestPathTo(vertices_inverse[k], vertices_inverse[j]);
                         int pt = 1;
-                        while (pt < pkj.size()) {
+                        while (pt < pkj->size()) {
                             dis[i][j] = dis[i][j] + graph->GetWeight(pkj[pt-1], pkj[pt]);
                             pt++;
                         }
