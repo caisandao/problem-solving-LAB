@@ -143,9 +143,10 @@ public:
             } else {
                 int sou_num = vertices.at(source);
                 int des_num = vertices.at(destination);
-                int pt = paths[sou_num][des_num];
-                tmp.emplace_back(destination);
-                while (pt != sou_num) {
+                //int pt = paths[sou_num][des_num];
+                //tmp.emplace_back(destination);
+                int pt = des_num;
+                while (pt != paths[sou_num][pt]) {
                     tmp.emplace_back(vertices_inverse.at(pt));
                     pt = paths[sou_num][pt];
                 }
