@@ -146,10 +146,10 @@ public:
                 //int pt = paths[sou_num][des_num];
                 //tmp.emplace_back(destination);
                 int pt = des_num;
-                while (pt != paths[sou_num][pt]) {
+                do {
                     tmp.emplace_back(vertices_inverse.at(pt));
                     pt = paths[sou_num][pt];
-                }
+                } while (pt != paths[sou_num][pt]);
                 tmp.emplace_back(source);
                 std::vector<int> tmp2;
                 for (int i = tmp.size() - 1; i >= 0; i--) {
