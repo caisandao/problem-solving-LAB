@@ -35,9 +35,9 @@ public:
         // **************************************************
 
         for (int i = 0; i < v.size(); i++) {
-            dis[i].emplace_back(tmp);
+            //dis[i].emplace_back(tmp);
             vis[i].emplace_back(tmp_vis);
-            //o_edges[i].emplace_back(tmp_vis);
+            o_edges[i].emplace_back(tmp_vis);
         }
 
         // **************************************************
