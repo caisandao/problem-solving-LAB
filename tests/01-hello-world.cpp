@@ -8,6 +8,7 @@
 #include <Algorithms/ShortestPaths.h>
 #include <Algorithms/DijkstraShortestPaths.h>
 #include <Algorithms/BellmanFordShortestPaths.h>
+#include <Algorithms/FloydShortestPaths.h>
 using namespace std;
 
 int main() {
@@ -358,6 +359,26 @@ int main() {
         printf("\n");
         delete p;
     }
+
+
+    auto *wg = new WeightedGraph<int>;
+    wg->AddVertex(1);
+    wg->AddVertex(2);
+    wg->AddVertex(3);
+    wg->AddEdge(1, 2, 1);
+    wg->AddEdge(2, 3, 2);
+    MultiSourceShortestPaths<WeightedGraph<int>> *sp = nullptr;
+    sp = new FloydShortestPaths<WeightedGraph<int>>(wg);
+    assert(sp->HasPathTo(1, 2));
+    assert(sp->HasPathTo(2, 3));
+    assert(sp->HasPathTo(1, 3));
+    assert(sp->TryGetDistanceTo(1, 3) == 3);
+    assert(sp->TryGetDistanceTo(2, 3) == 2);
+    std::vector<int> tmp;
+    tmp.emplace_back(1);
+    tmp.emplace_back(2);
+    tmp.emplace_back(3);
+    assert(sp->TryGetShortestPathTo(1, 3) == tmp);
 }
 
 /*
