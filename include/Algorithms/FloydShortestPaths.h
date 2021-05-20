@@ -77,6 +77,7 @@ public:
                         while (pt < pkj->size()) {
                             dis[i][j] = dis[i][j] + graph->GetWeight(pkj->at(pt-1), pkj->at(pt));
                             pt++;
+                            paths[i][vertices[pkj->at(pt)]] = vertices[pkj->at(pt-1)];
                         }
                         vis[i][j] = true;
                     }
