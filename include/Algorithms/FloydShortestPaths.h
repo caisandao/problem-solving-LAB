@@ -68,6 +68,18 @@ public:
         for (int i = 0; i < v.size(); i++) {
             for (int k = 0; k < v.size(); k++) {
                 for (int j = 0; j < v.size(); j++) {
+                    if ((vis[i][k] && vis[k][j] && !vis[i][j]) ||
+                        (vis[i][k] && vis[k][j] && vis[i][j] && dis[i][j] > dis[i][k] + dis[k][j])) {
+                        dis[i][j] = dis[i][k];
+                        std::vector<int> pkj = TryGetShortestPathTo(vertices_inverse[k], vertices_inverse[j]);
+                        int pt = 1;
+                        while (pt < pkj.size()) {
+                            dis[i][j] = dis[i][j] + graph->GetWeight(pkj[pt-1], pkj[pt]);
+                            pt++;
+                        }
+                        vis[i][j] = true;
+                    }
+                    /*
                     if (vis[i][k] && vis[k][j] && !vis[i][j]) {
                         if (o_edges[i][k] && paths[i][k] == k) {
                             dis[i][j] = dis[k][j] + dis[i][k];
@@ -89,6 +101,7 @@ public:
                     } else {
                         continue;
                     }
+                    */
                 }
             }
         }
