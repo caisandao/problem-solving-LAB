@@ -361,14 +361,14 @@ int main() {
     }
 
 
-    auto *wg = new WeightedGraph<int>;
+    auto *wg = new UndirectedWeightedGraph<int>;
     wg->AddVertex(1);
     wg->AddVertex(2);
     wg->AddVertex(3);
     wg->AddEdge(1, 2, 1);
     wg->AddEdge(2, 3, 2);
-    MultiSourceShortestPaths<WeightedGraph<int>> *sp = nullptr;
-    sp = new FloydShortestPaths<WeightedGraph<int>>(wg);
+    MultiSourceShortestPaths<UndirectedWeightedGraph<int>> *sp = nullptr;
+    sp = new FloydShortestPaths<UndirectedWeightedGraph<int>>(wg);
     assert(sp->HasPathTo(1, 2));
     assert(sp->HasPathTo(2, 3));
     assert(sp->HasPathTo(1, 3));
