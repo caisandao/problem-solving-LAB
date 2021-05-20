@@ -361,14 +361,16 @@ int main() {
     }
 
 
-    auto *wg = new UndirectedWeightedGraph<int>;
+    auto *wg = new WeightedGraph<int>;
     wg->AddVertex(1);
     wg->AddVertex(2);
     wg->AddVertex(3);
+    wg->AddVertex(4);
     wg->AddEdge(1, 2, 1);
     wg->AddEdge(2, 3, 2);
-    MultiSourceShortestPaths<UndirectedWeightedGraph<int>> *sp = nullptr;
-    sp = new FloydShortestPaths<UndirectedWeightedGraph<int>>(wg);
+    wg->AddEdge(3, 4, 3);
+    MultiSourceShortestPaths<WeightedGraph<int>> *sp = nullptr;
+    sp = new FloydShortestPaths<WeightedGraph<int>>(wg);
     assert(sp->HasPathTo(1, 2));
     assert(sp->HasPathTo(2, 3));
     assert(sp->HasPathTo(1, 3));
@@ -379,6 +381,8 @@ int main() {
     tmp.emplace_back(2);
     tmp.emplace_back(3);
     assert(sp->TryGetShortestPathTo(1, 3) == tmp);
+    tmp.emplace_back(4);
+    assert(sp->TryGetShortestPathTo(1, 4) == tmp);
 }
 
 /*
