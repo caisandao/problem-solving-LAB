@@ -32,12 +32,12 @@ public:
             tmp.emplace_back(typename TGraph::value_type());
             tmp_vis.emplace_back(false);
         }
+        /*
         for (int i = 0; i < v.size(); i++) {
             dis[i].emplace_back(tmp);
             vis[i].emplace_back(tmp_vis);
             o_edges.emplace_back(tmp_vis);
         }
-        /*
         for (int i = 0; i < v.size(); i++) {
             std::vector<WeightedEdge<typename TGraph::value_type>> out_edge = graph->GetOutgoingEdges(v[i]);
             for (auto & we : out_edge) {
