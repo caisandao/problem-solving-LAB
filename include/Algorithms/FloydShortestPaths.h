@@ -25,6 +25,7 @@ public:
         std::vector<int> v = graph->GetVertices();
         for (int i = 0; i < v.size(); i++) {
             vertices.insert(std::make_pair(v[i], i));
+            vertices_inverse.insert(std::make_pair(i, v[i]));
         }
         std::vector<typename TGraph::value_type> tmp;
         std::vector<bool> tmp_vis;
