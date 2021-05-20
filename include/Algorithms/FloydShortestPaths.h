@@ -152,7 +152,7 @@ public:
                 }
                 tmp.emplace_back(source);
                 std::vector<int> tmp2;
-                for (int i = tmp.size() - 1; i >= 0; i++) {
+                for (int i = tmp.size() - 1; i >= 0; i--) {
                     tmp2.emplace_back(tmp[i]);
                 }
                 return tmp2;
