@@ -37,6 +37,7 @@ public:
             vis[i].emplace_back(tmp_vis);
             o_edges.emplace_back(tmp_vis);
         }
+        /*
         for (int i = 0; i < v.size(); i++) {
             std::vector<WeightedEdge<typename TGraph::value_type>> out_edge = graph->GetOutgoingEdges(v[i]);
             for (auto & we : out_edge) {
@@ -45,7 +46,7 @@ public:
                 o_edges[i][vertices[we.GetDestination()]] = true;
             }
         }
-        /*
+
         // initialization of paths
         std::vector<int> tmp_path;
         for (int i = 0; i < v.size(); i++) {
