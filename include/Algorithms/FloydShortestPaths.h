@@ -74,7 +74,7 @@ public:
                         std::optional<std::vector<int>> pkj = TryGetShortestPathTo(vertices_inverse[k], vertices_inverse[j]);
                         int pt = 1;
                         while (pt < pkj->size()) {
-                            dis[i][j] = dis[i][j] + graph->GetWeight(pkj[pt-1], pkj[pt]);
+                            dis[i][j] = dis[i][j] + graph->GetWeight(pkj->at(pt-1), pkj->at(pt));
                             pt++;
                         }
                         vis[i][j] = true;
