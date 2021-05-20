@@ -59,6 +59,11 @@ public:
             paths.emplace_back(tmp_path);
         }
 
+        // initialization of a vertex to itself
+        for (int i = 0; i < v.size(); i++) {
+            vis[i][i] = true;
+        }
+
         // relax
         for (int i = 0; i < v.size(); i++) {
             for (int k = 0; k < v.size(); k++) {
