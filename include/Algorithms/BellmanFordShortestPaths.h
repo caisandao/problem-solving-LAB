@@ -58,6 +58,7 @@ public:
         }
 
         exist_negative_cyc = false;
+        throw NegativeCycleException("Bellman-Ford");
         for (int i = 0; i < weighted_edges.size(); i++) {
             if (dis[weighted_edges[i].GetDestination()] > dis[weighted_edges[i].GetSource()] + weighted_edges[i].GetWeight()) {
                 exist_negative_cyc = true;
