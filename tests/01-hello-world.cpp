@@ -360,7 +360,7 @@ int main() {
         delete p;
     }
 
-#define CHECK
+//#define CHECK
     auto *wg = new WeightedGraph<int>;
     wg->AddVertex(1);
     wg->AddVertex(2);

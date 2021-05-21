@@ -23,8 +23,8 @@ private:
     };
 public:
     explicit FloydShortestPaths(const TGraph *graph) : MultiSourceShortestPaths<TGraph>(graph) {
-        for (auto & i : vertices) {
-            for (auto & k : vertices) {
+        for (auto & k : vertices) {
+            for (auto & i : vertices) {
                 for (auto & j : vertices) {
                     if (dis.count({i, k}) &&
                         dis.count({k, j}) &&
