@@ -25,7 +25,7 @@ private:
     };
 public:
     BipariteGraphMatching(const TGraph* g, std::unordered_set<int> left, std::unordered_set<int> right) {
-        std::vector<int> vertices = g->GetVertices;
+        std::vector<int> vertices = g->GetVertices();
         std::unordered_set<int> vertices_in_g;
         for (auto & i : vertices) {
             vertices_in_g.emplace(i);
