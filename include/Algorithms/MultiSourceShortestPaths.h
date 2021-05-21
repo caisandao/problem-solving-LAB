@@ -1,4 +1,4 @@
-/*
+#ifndef CHECK
 #ifndef MULTI_SOURCE_SHORTEST_PATHS
 #define MULTI_SOURCE_SHORTEST_PATHS
 
@@ -41,10 +41,10 @@ public:
   virtual std::optional<typename TGraph::value_type> TryGetDistanceTo(int source, int destination) const = 0;
   virtual std::optional<std::vector<int>> TryGetShortestPathTo(int source, int destination) const = 0;
 };
-
 #endif
-*/
+#endif
 
+#ifdef CHECK
 #ifndef MULTI_SOURCE_SHORTEST_PATHS
 #define MULTI_SOURCE_SHORTEST_PATHS
 
@@ -103,4 +103,5 @@ public:
 };
 
 
+#endif
 #endif
