@@ -1,7 +1,7 @@
 //
 // Created by ASUS on 2021/5/19.
 //
-
+/*
 #ifndef GRAPHLIBRARY_FLOYDSHORTESTPATHS_H
 #define GRAPHLIBRARY_FLOYDSHORTESTPATHS_H
 
@@ -65,6 +65,66 @@ public:
         else
             return std::nullopt;
     };
+};
+
+#endif //GRAPHLIBRARY_FLOYDSHORTESTPATHS_H
+ */
+
+#ifndef GRAPHLIBRARY_FLOYDSHORTESTPATHS_H
+#define GRAPHLIBRARY_FLOYDSHORTESTPATHS_H
+
+#include "Algorithms/MultiSourceShortestPaths.h"
+//#include "Exceptions/NegativeCycleException.h"
+#define vertices MultiSourceShortestPaths<TGraph>::vertices
+#define Distance MultiSourceShortestPaths<TGraph>::Distance
+#define Path     MultiSourceShortestPaths<TGraph>::Path
+
+template<typename TGraph>
+class FloydShortestPaths : public MultiSourceShortestPaths<TGraph>{
+public:
+    typedef typename TGraph::value_type TValue;
+public:
+    explicit FloydShortestPaths(const TGraph *graph) : MultiSourceShortestPaths<TGraph>(graph){
+        std::map<std::pair<int, int>, int> mid;
+//        return ;
+
+        for (int k : vertices)
+            for (int i : vertices) {
+//                if (i == k) continue;
+                for (int j : vertices) {
+//                    if (j == i || j == k)   continue;
+                    if (!Distance.count({i, k})|| !Distance.count({k, j}))
+                        continue;
+                    TValue new_dis = Distance.at({i, k}) + Distance.at({k, j});
+                    if (Distance.count({i, j}) == 1 && Distance.at({i, j}) <= new_dis)
+                        continue;
+                    Distance[{i, j}] = new_dis;
+                    if (mid.count({k, j}) == 1)
+                        mid[{i, j}]= mid[{k, j}];
+                    else
+                        mid[{i, j}] = k;
+                }
+
+            }
+
+//        printf("suc\n");
+
+        for (int src : vertices)
+            for (int dst : vertices){
+                if (src == dst) continue;
+                if (!Distance.count({src, dst}))  continue;
+                Path[{src, dst}].insert(Path[{src, dst}].begin(), dst);
+                int tmp = dst;
+                while(mid.count({src, tmp}) == 1) {
+                    tmp = mid[{src, tmp}];
+                    Path[{src, dst}].insert(Path[{src, dst}].begin(), tmp);
+                }
+                Path[{src, dst}].insert(Path[{src, dst}].begin(), src);
+            }
+
+    }
+
+    ~FloydShortestPaths() = default;
 };
 
 #endif //GRAPHLIBRARY_FLOYDSHORTESTPATHS_H
