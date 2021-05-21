@@ -14,7 +14,7 @@
 template <typename TGraph>
 class FloydShortestPaths : public MultiSourceShortestPaths<TGraph> {
 private:
-    typedef typename TGraph::type_value TValue;
+    typedef typename TGraph::value_type TValue;
     std::vector<int> add_paths(std::vector<int> p1, std::vector<int> p2) {
         std::vector<int> ret = p1;
         for (auto & i : p2) {
