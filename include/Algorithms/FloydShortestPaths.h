@@ -6,7 +6,7 @@
 #define GRAPHLIBRARY_FLOYDSHORTESTPATHS_H
 
 #include <Algorithms/MultiSourceShortestPaths.h>
-#define g MultiSourceShortestPaths<TGraph>::graph
+//#define g MultiSourceShortestPaths<TGraph>::graph
 #define vertices MultiSourceShortestPaths<TGraph>::vertices
 #define dis MultiSourceShortestPaths<TGraph>::dis
 #define paths MultiSourceShortestPaths<TGraph>::paths
@@ -46,7 +46,7 @@ public:
     ~FloydShortestPaths() = default;
 
     bool HasPathTo(int source, int destination) const {
-        if (!g->ContainsVertex(source) || !g->ContainsVertex(destination)) return false;
+        //if (!g->ContainsVertex(source) || !g->ContainsVertex(destination)) return false;
         if (dis.count({source, destination})) return true;
         else return false;
     };
