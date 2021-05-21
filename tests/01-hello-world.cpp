@@ -391,7 +391,9 @@ int main() {
     assert(sp->TryGetShortestPathTo(1, 4) == tmp);
     tmp.insert(tmp.begin(), 6);
     assert(sp->TryGetShortestPathTo(6, 4) == tmp);
-    assert(sp->TryGetShortestPathTo(1, 1) == std::vector<int>{1});
+    std::vector<int> tmp2;
+    tmp2.emplace_back(1);
+    assert(sp->TryGetShortestPathTo(1, 1) == tmp2);
 }
 
 /*
