@@ -53,14 +53,14 @@ public:
 
     std::optional<typename TGraph::value_type> TryGetDistanceTo(int source, int destination) const {
         if (HasPathTo(source, destination))
-            return dis[{source, destination}];
+            return dis.at({source, destination});
         else
             return std::nullopt;
     };
 
     std::optional<std::vector<int>> TryGetShortestPathTo(int source, int destination) const {
         if (HasPathTo(source, destination))
-            return paths[{source, destination}];
+            return paths.at({source, destination});
         else
             return std::nullopt;
     };
