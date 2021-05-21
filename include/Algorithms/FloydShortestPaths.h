@@ -37,6 +37,7 @@ public:
         }
         for (auto & i : vertices) {
             for (auto & j : vertices) {
+                if (i == j) continue;
                 if (paths.count({i, j}))
                     paths[{i, j}].emplace_back(j);
             }
