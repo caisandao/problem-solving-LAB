@@ -9,7 +9,7 @@ string GLException::GetMessage() const {
   return message;
 }
 
-ostream &operator<<(ostream &os, const GLException &e) {
+std::ostream &operator<<(std::ostream &os, const GLException &e) {
   return os << e.GetMessage();
 }
 
