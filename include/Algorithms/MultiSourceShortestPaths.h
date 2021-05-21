@@ -81,7 +81,7 @@ public:
     }
 
 public:
-    [[nodiscard]] bool HasPathOf(int source, int destination) const {
+    [[nodiscard]] bool HasPathTo(int source, int destination) const {
         if (std::find(vertices.begin(), vertices.end(), source) == vertices.end())
             return false;
         if (std::find(vertices.begin(), vertices.end(), destination) == vertices.end())
@@ -89,14 +89,14 @@ public:
         return Distance.count(std::make_pair(source, destination)) == 1;
     }
 
-    std::optional<TValue> TryGetDistanceOf(int source, int destination) const {
-        if (HasPathOf(source, destination))
+    std::optional<TValue> TryGetDistanceTo(int source, int destination) const {
+        if (HasPathTo(source, destination))
             return Distance.at(std::make_pair(source, destination));
         return std::nullopt;
     }
 
-    [[nodiscard]] std::optional<std::vector<int>> TryGetShortestPathOf(int source, int destination) const {
-        if (!HasPathOf(source, destination))
+    [[nodiscard]] std::optional<std::vector<int>> TryGetShortestPathTo(int source, int destination) const {
+        if (!HasPathTo(source, destination))
             return std::nullopt;
         return Path.at(std::make_pair(source, destination));
     }
