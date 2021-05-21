@@ -379,20 +379,16 @@ int main() {
     wg->AddEdge(6,1,0);
     MultiSourceShortestPaths<WeightedGraph<int>> *sp = nullptr;
     sp = new FloydShortestPaths<WeightedGraph<int>>(wg);
-    /*
     assert(sp->HasPathTo(1, 2));
     assert(sp->HasPathTo(2, 3));
     assert(sp->HasPathTo(1, 3));
-    assert(sp->TryGetDistanceTo(1, 3) == 3);
-    assert(sp->TryGetDistanceTo(2, 3) == 2);
+    assert(sp->TryGetDistanceTo(1, 3) == 1);
+    assert(sp->TryGetDistanceTo(1, 4) == 1);
     std::vector<int> tmp;
     tmp.emplace_back(1);
-    tmp.emplace_back(2);
     tmp.emplace_back(3);
-    assert(sp->TryGetShortestPathTo(1, 3) == tmp);
     tmp.emplace_back(4);
     assert(sp->TryGetShortestPathTo(1, 4) == tmp);
-     */
 }
 
 /*
