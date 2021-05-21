@@ -20,7 +20,7 @@ public:
       vertices = graph->GetVertices();
       for (auto & vertex : vertices) {
           dis.emplace(std::make_pair(vertex, vertex), TValue());
-          paths.emplace(std::make_pair(vertex, vertex), std::vector<int>{vertex, vertex});
+          paths.emplace(std::make_pair(vertex, vertex), std::vector<int>{vertex});
       }
       for (auto & vertex : vertices) {
           std::vector<int> tmp = graph->GetNeighbors(vertex);
