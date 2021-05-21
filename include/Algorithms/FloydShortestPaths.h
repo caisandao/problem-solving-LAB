@@ -46,7 +46,7 @@ public:
     ~FloydShortestPaths() = default;
 
     bool HasPathTo(int source, int destination) const {
-        //if (!g->ContainsVertex(source) || !g->ContainsVertex(destination)) return false;
+        if (!MultiSourceShortestPaths<TGraph>::graph->ContainsVertex(source) || !MultiSourceShortestPaths<TGraph>::graph->ContainsVertex(destination)) return false;
         if (dis.count({source, destination})) return true;
         else return false;
     };
