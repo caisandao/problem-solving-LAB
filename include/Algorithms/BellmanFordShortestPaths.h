@@ -58,11 +58,12 @@ public:
         }
 
         exist_negative_cyc = false;
-        throw NegativeCycleException("Bellman-Ford");
         for (int i = 0; i < weighted_edges.size(); i++) {
-            if (dis[weighted_edges[i].GetDestination()] > dis[weighted_edges[i].GetSource()] + weighted_edges[i].GetWeight()) {
+            if (vis[weighted_edges[i].GetDestination()] &&
+                vis[weighted_edges[i].GetSource()] &&
+                dis[weighted_edges[i].GetDestination()] > dis[weighted_edges[i].GetSource()] + weighted_edges[i].GetWeight()) {
                 exist_negative_cyc = true;
-                //throw NegativeCycleException("Bellman-Ford");
+                throw NegativeCycleException("Bellman-Ford");
                 break;
             }
         }
