@@ -7,6 +7,7 @@
 
 #include <Algorithms/ShortestPaths.h>
 #include <DataStructures/WeightedEdge.h>
+#include <Exceptions/NegativeCycleException.h>
 #include <unordered_map>
 
 template<typename TGraph>
@@ -60,6 +61,7 @@ public:
         for (int i = 0; i < weighted_edges.size(); i++) {
             if (dis[weighted_edges[i].GetDestination()] > dis[weighted_edges[i].GetSource()] + weighted_edges[i].GetWeight()) {
                 exist_negative_cyc = true;
+                throw NegativeCycleException("Bellman-Ford");
                 break;
             }
         }

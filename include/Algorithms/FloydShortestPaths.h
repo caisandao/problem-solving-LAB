@@ -14,6 +14,7 @@
 template <typename TGraph>
 class FloydShortestPaths : public MultiSourceShortestPaths<TGraph> {
 private:
+    typedef typename TGraph::type_value TValue;
     std::vector<int> add_paths(std::vector<int> p1, std::vector<int> p2) {
         std::vector<int> ret = p1;
         for (auto & i : p2) {
@@ -33,6 +34,8 @@ public:
                         paths[{i, j}] = add_paths(paths[{i, k}], paths[{k, j}]);
                     }
                 }
+                if (dis[{i, i}] < TValue())
+                    throw NegativeCycleException("Floyd");
             }
         }
         for (auto & i : vertices) {
@@ -46,21 +49,21 @@ public:
 
     ~FloydShortestPaths() = default;
 
-    bool HasPathTo(int source, int destination) const {
+    bool HasPathOf(int source, int destination) const {
         if (!graph1->ContainsVertex(source) || !graph1->ContainsVertex(destination)) return false;
         if (dis.count({source, destination})) return true;
         else return false;
     };
 
-    std::optional<typename TGraph::value_type> TryGetDistanceTo(int source, int destination) const {
-        if (HasPathTo(source, destination))
+    std::optional<typename TGraph::value_type> TryGetDistanceOf(int source, int destination) const {
+        if (HasPathOf(source, destination))
             return dis.at({source, destination});
         else
             return std::nullopt;
     };
 
-    std::optional<std::vector<int>> TryGetShortestPathTo(int source, int destination) const {
-        if (HasPathTo(source, destination))
+    std::optional<std::vector<int>> TryGetShortestPathOf(int source, int destination) const {
+        if (HasPathOf(source, destination))
             return paths.at({source, destination});
         else
             return std::nullopt;

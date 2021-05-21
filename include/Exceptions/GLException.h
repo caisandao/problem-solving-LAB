@@ -9,11 +9,17 @@ class GLException : public std::exception {
  protected:
   std::string message;
  public:
-  explicit GLException(const std::string &s);
-  virtual std::string GetMessage() const;
+  explicit GLException(const std::string &s) {
+      message = s;
+  };
+  virtual std::string GetMessage() const {
+      return message;
+  };
 };
 
-ostream &operator<<(ostream &os, const GLException &e);
+ostream &operator<<(ostream &os, const GLException &e) {
+    return os << e.GetMessage();
+};
 
 #endif
 
