@@ -61,7 +61,7 @@ public:
         for (int i = 0; i < weighted_edges.size(); i++) {
             if (dis[weighted_edges[i].GetDestination()] > dis[weighted_edges[i].GetSource()] + weighted_edges[i].GetWeight()) {
                 exist_negative_cyc = true;
-                throw NegativeCycleException("Bellman-Ford");
+                //throw NegativeCycleException("Bellman-Ford");
                 break;
             }
         }
@@ -77,7 +77,7 @@ public:
     };
 
     bool HasPathTo(int destination) const {
-        if (exist_negative_cyc) return false;
+        //if (exist_negative_cyc) return false;
         if (!this->graph->ContainsVertex(destination)) return false;
         if (this->vis.at(destination))
             return true;
