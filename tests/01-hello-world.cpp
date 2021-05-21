@@ -389,6 +389,8 @@ int main() {
     tmp.emplace_back(3);
     tmp.emplace_back(4);
     assert(sp->TryGetShortestPathTo(1, 4) == tmp);
+    tmp.insert(tmp.begin(), 6);
+    assert(sp->TryGetShortestPathTo(6, 4) == tmp);
 }
 
 /*
