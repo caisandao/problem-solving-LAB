@@ -77,7 +77,7 @@ public:
     };
 
     bool HasPathTo(int destination) const {
-        //if (exist_negative_cyc) return false;
+        if (exist_negative_cyc) return false;
         if (!this->graph->ContainsVertex(destination)) return false;
         if (this->vis.at(destination))
             return true;
